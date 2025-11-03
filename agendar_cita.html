@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Cita - Taller Mecánico AT</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="ruta/a/tu/logo.png" type="image/png">
+</head>
+<body>
+    
+    <header>
+        <div class="navbar-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="ruta/a/tu/logo.png" alt="Logo Taller Mecánico AT">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="sucursales.html">Sucursales</a></li>
+                    <li><a href="servicios.html">Servicios Técnicos</a></li>
+                    <li><a href="repuestos.html">Repuestos</a></li>
+                    <li><a href="index.html#contacto">Contáctanos</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="cuenta.html" class="account-link">Mi Cuenta</a>
+                <a href="agendar_cita.html" class="cta-button active">Agendar Cita</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="form-cita">
+            <h2>Agenda tu Cita</h2>
+            <p>Completa los siguientes datos para reservar tu hora.</p>
+
+            <form class="cita-form-container">
+                
+                <fieldset class="form-step">
+                    <legend>1. Tus Datos Personales</legend>
+                    <div class="form-group">
+                        <label for="cita-nombre">Nombre:</label>
+                        <input type="text" id="cita-nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cita-apellido">Apellido del Dueño:</label>
+                        <input type="text" id="cita-apellido" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cita-email">Email:</label>
+                        <input type="email" id="cita-email" required>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-step">
+                    <legend>2. Datos de tu Vehículo</legend>
+                    <div class="form-group">
+                        <label for="cita-marca">Marca del Coche:</label>
+                        <input type="text" id="cita-marca" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cita-modelo">Modelo:</label>
+                        <input type="text" id="cita-modelo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cita-placa">Placa:</label>
+                        <input type="text" id="cita-placa" required>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-step">
+                    <legend>3. Detalles de la Cita</legend>
+                    <div class="form-group">
+                        <label for="cita-sucursal">Selecciona la Sucursal:</label>
+                        <select id="cita-sucursal" required>
+                            <option value="">-- Elige una sucursal --</option>
+                            <option value="centro">Sucursal Centro</option>
+                            <option value="norte">Sucursal Norte</option>
+                            <option value="sur">Sucursal Sur</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cita-servicio">Servicio que deseas adquirir:</label>
+                        <select id="cita-servicio" required>
+                            <option value="">-- Elige un servicio --</option>
+                            <option value="mecanica_general">Mecánica General</option>
+                            <option value="frenos">Frenos</option>
+                            <option value="cambio_aceite">Cambio de Aceite y Filtros</option>
+                            <option value="electricidad">Electricidad Automotriz</option>
+                            <option value="alineacion">Alineación y Balanceo</option>
+                            <option value="aire">Aire Acondicionado</option>
+                            <option value="diagnostico">Diagnóstico General</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cita-fecha">Fecha:</label>
+                        <input type="date" id="cita-fecha" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cita-horario">Horarios Disponibles:</label>
+                        <select id="cita-horario" required>
+                            <option value="">-- Elige un horario --</option>
+                            <option value="09:00">09:00 AM</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="14:00">02:00 PM</option>
+                            <option value="15:00">03:00 PM</option>
+                            <option value="16:00">04:00 PM</option>
+                        </select>
+                    </div>
+                </fieldset>
+                
+                <button type="submit" class="cta-button large">Confirmar Cita</button>
+
+            </form>
+        </section>
+    </main>
+
+    <footer id="contacto">
+        </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

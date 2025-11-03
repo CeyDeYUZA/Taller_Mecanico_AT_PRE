@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuenta - Taller Mecánico AT</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="ruta/a/tu/logo.png" type="image/png">
+</head>
+<body>
+    
+    <header>
+        <div class="navbar-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="ruta/a/tu/logo.png" alt="Logo Taller Mecánico AT">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="sucursales.html">Sucursales</a></li>
+                    <li><a href="servicios.html">Servicios Técnicos</a></li>
+                    <li><a href="repuestos.html">Repuestos</a></li>
+                    <li><a href="index.html#contacto">Contáctanos</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="cuenta.html" class="account-link active">Mi Cuenta</a>
+                <a href="agendar_cita.html" class="cta-button">Agendar Cita</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="login-register">
+            <div class="login-container">
+                <div class="form-toggle">
+                    <button id="show-login-btn" class="active">Iniciar Sesión</button>
+                    <button id="show-register-btn">Crear Cuenta</button>
+                </div>
+
+                <div id="login-form" class="form-container active">
+                    <h2>Bienvenido de Vuelta</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="login-email">Email:</label>
+                            <input type="email" id="login-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-pass">Contraseña:</label>
+                            <input type="password" id="login-pass" required>
+                        </div>
+                        <button type="submit" class="cta-button">Ingresar</button>
+                    </form>
+                </div>
+
+                <div id="register-form" class="form-container">
+                    <h2>Crea tu Cuenta</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="reg-name">Nombre Completo:</label>
+                            <input type="text" id="reg-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-email">Email:</label>
+                            <input type="email" id="reg-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-pass">Crear Contraseña:</label>
+                            <input type="password" id="reg-pass" required>
+                        </div>
+                        <button type="submit" class="cta-button">Registrarme</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contacto">
+        </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
