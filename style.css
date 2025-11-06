@@ -947,3 +947,285 @@ footer .copy {
 
     font-size: 1.2em;
 }
+/* ========================================= */
+/* ESTILOS ESPECÍFICOS DEL DASHBOARD ADMIN   */
+/* ========================================= */
+
+/* Variables de Colores (Si ya las tienes, ignora este bloque) */
+:root {
+    --azul-oscuro: #003366;
+    --naranja-vibrante: #FF6D2D;
+    --blanco: #FFFFFF;
+    --gris-claro-fondo: #f4f4f4;
+    --rojo-alerta: #dc3545;
+    --verde-exito: #28a745;
+    --gris-oscuro: #555;
+}
+
+/* Layout Principal del Dashboard (CLASE CRUCIAL) */
+body.admin-body {
+    display: flex; 
+    min-height: 100vh;
+    background-color: var(--gris-claro-fondo);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; 
+}
+
+body.admin-body main {
+    padding: 0;
+    flex-grow: 1; 
+    margin-left: 250px; /* Ancho del sidebar */
+}
+
+/* --- BARRA LATERAL (SIDEBAR) --- */
+.sidebar {
+    width: 250px;
+    background-color: var(--azul-oscuro);
+    color: var(--blanco);
+    padding: 20px;
+    position: fixed; 
+    height: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+.sidebar .logo-admin {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /* AJUSTE PARA EL LOGO: Fondo claro para que se vea la imagen original */
+    
+    padding-top: 20px; 
+    margin: 0 -20px 30px -20px; /* Extiende el fondo blanco a los bordes del sidebar */
+}
+.sidebar .logo-admin img {
+    width: 150px;
+    /* FILTRO INVERTIDO ELIMINADO para mantener los colores del logo original */
+}
+.sidebar h3 {
+    color: var(--naranja-vibrante);
+    text-align: center;
+    margin-bottom: 20px;
+}
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+}
+.sidebar-nav ul li a {
+    display: flex;
+    align-items: center;
+    color: var(--blanco);
+    padding: 14px 15px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: bold;
+    text-decoration: none;
+}
+.sidebar-nav ul li a:hover,
+.sidebar-nav ul li a.active {
+    background-color: var(--naranja-vibrante);
+    color: var(--azul-oscuro);
+}
+.sidebar-nav ul li a .icon {
+    margin-right: 10px;
+    font-size: 1.2em;
+    font-style: normal;
+}
+.logout-link {
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+}
+.logout-link a {
+    background-color: var(--rojo-alerta) !important;
+    color: var(--blanco) !important;
+    text-align: center;
+}
+.logout-link a:hover {
+    background-color: #c82333 !important;
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+.dashboard-content {
+    padding: 40px;
+    width: 100%;
+}
+.dashboard-content h1 {
+    color: var(--azul-oscuro);
+    margin-bottom: 30px;
+    border-bottom: 3px solid var(--naranja-vibrante);
+    padding-bottom: 10px;
+    text-align: left;
+    font-size: 2.5em;
+}
+
+/* --- TARJETAS DE CONTENIDO (Secciones y Formularios) --- */
+.section-card, .form-section-card, .detail-card {
+    background: var(--blanco);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+.section-card:hover {
+    transform: translateY(-3px);
+}
+.section-card h2 {
+    color: var(--azul-oscuro);
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+/* --- KPI's / Stats Grid --- */
+.stats-grid {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+.stat-box {
+    flex: 1;
+    min-width: 200px;
+    background: var(--blanco);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid var(--azul-oscuro);
+}
+.stat-box.alert {
+    border-left: 5px solid var(--rojo-alerta);
+}
+.stat-box .number {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--azul-oscuro);
+}
+.stat-box .label {
+    color: var(--gris-oscuro);
+    margin-top: 5px;
+    font-size: 1.1em;
+}
+
+/* --- TABLAS Y BOTONES --- */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.data-table th, .data-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+.data-table th {
+    background-color: var(--azul-oscuro);
+    color: var(--blanco);
+    font-weight: bold;
+}
+.data-table tr:hover {
+    background-color: #f0f0f0;
+}
+.data-table a {
+    color: var(--naranja-vibrante);
+    text-decoration: none;
+    font-weight: bold;
+}
+.action-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+.cta-button {
+    padding: 12px 25px; 
+    border-radius: 5px;
+    font-size: 1em;
+    text-decoration: none; 
+    display: inline-block;
+    background-color: var(--azul-oscuro);
+    color: var(--blanco);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.cta-button.btn-cancel {
+    background-color: #6c757d;
+}
+.cta-button.btn-success {
+    background-color: var(--verde-exito);
+}
+
+/* --- FORMULARIOS --- */
+.form-row-2col {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.form-row-2col .form-group {
+    flex: 1;
+    min-width: 280px;
+}
+.form-group label {
+    display: block;
+    font-weight: bold;
+    color: var(--azul-oscuro);
+    margin-bottom: 5px;
+}
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+/* --- DETALLE DE CITA --- */
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+.detail-item {
+    padding: 8px 0;
+    border-bottom: 1px dotted #ccc;
+}
+.detail-item strong {
+    display: inline-block;
+    width: 120px;
+    color: var(--naranja-vibrante);
+}
+.status-badge {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-weight: bold;
+    color: var(--blanco);
+}
+.status-badge.pendiente { background-color: #ffc107; color: #333; }
+.status-badge.confirmada { background-color: var(--verde-exito); }
+.status-badge.finalizada { background-color: var(--azul-oscuro); }
+
+/* --- RESPONSIVE BÁSICO --- */
+@media (max-width: 992px) {
+    body.admin-body main {
+        margin-left: 0; 
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .detail-grid, .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .form-row-2col {
+        flex-direction: column;
+    }
+}

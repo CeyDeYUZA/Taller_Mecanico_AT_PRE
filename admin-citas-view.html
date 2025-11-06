@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Cita - Taller AT</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/img/LOGO.png" type="image/png">
+</head>
+<body class="admin-body">
+    
+    <header class="sidebar">
+        <div class="logo-admin">
+            <img src="assets/img/LOGO.png" alt="Logo Taller">
+            <h3>Panel de Control</h3>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="admin-dashboard.html#inicio"><span class="icon"></span> Inicio</a></li>
+                <li><a href="admin-dashboard.html#inventario"><span class="icon"></span> Inventario</a></li>
+                <li><a href="admin-dashboard.html#proveedores"><span class="icon"></span> Proveedores</a></li>
+                <li><a href="admin-dashboard.html#citas" class="active"><span class="icon"></span> Citas Agendadas</a></li>
+                <li><a href="admin-dashboard.html#reportes"><span class="icon"></span> Reportes y Ventas</a></li>
+                <li class="logout-link"><a href="logout"><span class="icon"></span> Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="dashboard-content">
+            
+            <h1>Detalle de Cita #C101</h1>
+            
+            <div class="action-buttons" style="justify-content: flex-end; margin-top: -60px;">
+                <a href="#" class="cta-button btn-success">Marcar como Finalizada</a>
+                <a href="#" class="cta-button">Enviar Recordatorio</a>
+                <a href="admin-dashboard.html#citas" class="cta-button btn-cancel">Volver a Citas</a>
+            </div>
+            
+            <div class="detail-grid" style="margin-top: 30px;">
+                
+                <div class="detail-card">
+                    <h2>Información del Cliente y Cita</h2>
+                    <div class="detail-item"><strong>Estado:</strong> <span class="status-badge pendiente">Pendiente</span></div>
+                    <div class="detail-item"><strong>Sucursal:</strong> Sucursal Centro</div>
+                    <div class="detail-item"><strong>Fecha:</strong> 05/Nov/2025</div>
+                    <div class="detail-item"><strong>Hora:</strong> 09:00 AM</div>
+                    <div class="detail-item"><strong>Cliente:</strong> Laura Díaz (ID: U-456)</div>
+                    <div class="detail-item"><strong>Teléfono:</strong> 555-9876</div>
+                    <div class="detail-item"><strong>Email:</strong> laura.d@ejemplo.com</div>
+                </div>
+                
+                <div class="detail-card">
+                    <h2>Detalles del Vehículo y Servicio</h2>
+                    <div class="detail-item"><strong>Marca/Modelo:</strong> Toyota Corolla (2020)</div>
+                    <div class="detail-item"><strong>Placa:</strong> XYZ-789</div>
+                    <div class="detail-item"><strong>Servicio Solicitado:</strong> Diagnóstico General</div>
+                    <div class="detail-item"><strong>Descripción:</strong> El motor hace un ruido extraño al encender en frío. Pide revisar el sistema de frenos preventivamente.</div>
+                    
+                    <h3 style="color:var(--naranja-vibrante); margin-top: 20px;">Acciones de Taller</h3>
+                    <select class="form-group" style="margin-bottom: 10px;">
+                        <option>Pendiente</option>
+                        <option>En Taller</option>
+                        <option>Esperando Repuestos</option>
+                        <option>Finalizada</option>
+                    </select>
+                    <a href="#" class="cta-button" style="width: 100%; text-align: center;">Actualizar Estado</a>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+    
+</body>
+</html>

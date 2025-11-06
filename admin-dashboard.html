@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Administrativo - Taller AT</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/img/LOGO.png" type="image/png">
+</head>
+<body class="admin-body">
+    
+    <header class="sidebar">
+        <div class="logo-admin">
+            <img src="assets/img/LOGO.png" alt="Logo Taller">
+            <h3>Panel de Control</h3>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="#inicio" class="active"><span class="icon"></span> Inicio</a></li>
+                <li><a href="#inventario"><span class="icon"></span> Inventario</a></li>
+                <li><a href="#proveedores"><span class="icon"></span> Proveedores</a></li>
+                <li><a href="#citas"><span class="icon"></span> Citas Agendadas</a></li>
+                <li><a href="#reportes"><span class="icon"></span> Reportes y Ventas</a></li>
+                <li class="logout-link"><a href="logout"><span class="icon"></span> Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="dashboard-content">
+            
+            <section id="inicio" class="dashboard-section">
+                <h1>Panel de Gestión - Taller Mecánico AT</h1>
+                
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="number">5</div>
+                        <div class="label">Citas Hoy</div>
+                    </div>
+                    <div class="stat-box alert">
+                        <div class="number">3</div>
+                        <div class="label">Stock Crítico</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">$1,250</div>
+                        <div class="label">Ventas del Día</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">9/10</div>
+                        <div class="label">Satisfacción</div>
+                    </div>
+                </div>
+                
+                <div class="section-card">
+                    <h2>Próximas Tareas</h2>
+                    <p>Revisar las órdenes de compra pendientes y confirmar las citas de mañana.</p>
+                </div>
+            </section>
+            
+            <section id="inventario" class="dashboard-section" style="display:none;">
+                <h1> Gestión de Inventario</h1>
+                
+                <a href="admin-inventario-add.html" class="cta-button" style="margin-bottom: 20px;">+ Añadir Nuevo Repuesto</a>
+
+                <div class="section-card">
+                    <h2>Stock Detallado</h2>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Stock</th>
+                                <th>P. Venta</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>R-001</td>
+                                <td>Filtro de Aceite (Modelo A)</td>
+                                <td>25</td>
+                                <td>$15.00</td>
+                                <td><a href="admin-inventario-add.html?id=R001">Editar</a> | <a href="#">Eliminar</a></td>
+                            </tr>
+                            <tr>
+                                <td>R-002</td>
+                                <td>Pastillas de Freno (Set)</td>
+                                <td><span style="color:var(--rojo-alerta); font-weight:bold;">4 (Bajo)</span></td>
+                                <td>$45.50</td>
+                                <td><a href="admin-inventario-add.html?id=R002">Editar</a> | <a href="#">Eliminar</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <section id="proveedores" class="dashboard-section" style="display:none;">
+                <h1> Gestión de Proveedores</h1>
+                
+                <a href="admin-proveedores-add.html" class="cta-button" style="margin-bottom: 20px;">+ Registrar Nuevo Proveedor</a>
+
+                <div class="section-card">
+                    <h2>Lista de Proveedores</h2>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Contacto</th>
+                                <th>Teléfono</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mecánica Total Ltda.</td>
+                                <td>Ana Gómez</td>
+                                <td>555-1234</td>
+                                <td><span style="color:var(--verde-exito);">Activo</span></td>
+                                <td><a href="admin-proveedores-add.html?id=P001">Editar</a> | <a href="#">Pedido</a></td>
+                            </tr>
+                            <tr>
+                                <td>Neumáticos Rápidos</td>
+                                <td>Carlos Ruiz</td>
+                                <td>555-5678</td>
+                                <td>Activo</td>
+                                <td><a href="admin-proveedores-add.html?id=P002">Editar</a> | <a href="#">Pedido</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <section id="citas" class="dashboard-section" style="display:none;">
+                <h1>📅 Citas Agendadas</h1>
+                
+                <div class="section-card">
+                    <h2>Citas para Hoy (05/Nov/2025)</h2>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Hora</th>
+                                <th>Cliente</th>
+                                <th>Vehículo</th>
+                                <th>Servicio</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>09:00</td>
+                                <td>Laura Díaz</td>
+                                <td>Toyota Corolla</td>
+                                <td>Diagnóstico</td>
+                                <td><span style="font-weight:bold;">Pendiente</span></td>
+                                <td><a href="admin-citas-view.html?id=C101">Ver Detalle</a></td>
+                            </tr>
+                            <tr>
+                                <td>14:00</td>
+                                <td>Juan Pérez</td>
+                                <td>Honda Civic</td>
+                                <td>Frenos</td>
+                                <td>En Taller</td>
+                                <td><a href="admin-citas-view.html?id=C102">Ver Detalle</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+             <section id="reportes" class="dashboard-section" style="display:none;">
+                <h1> Reportes y Análisis de Ventas</h1>
+                
+                <div class="section-card">
+                    <h2>Reporte de Ventas por Servicio</h2>
+                    <p>Muestra un gráfico de barras (simulado) donde el cambio de aceite domina las ventas.</p>
+                </div>
+                
+                <div class="section-card">
+                    <h2>Stock Crítico</h2>
+                    <p>Generar un listado PDF con repuestos cuyo stock es inferior a 5 unidades.</p>
+                    <a href="#" class="cta-button" style="margin-top: 15px;">Generar Reporte PDF</a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+    
+    <script src="admin-dashboard.js"></script>
+    <script src="script.js"></script> 
+</body>
+</html>

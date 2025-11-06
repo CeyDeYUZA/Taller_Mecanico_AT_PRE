@@ -17,13 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 2. Lógica del buscador de repuestos
-    // Primero, verificamos si estamos en la página de repuestos
     const buscadorInput = document.getElementById('buscador-input');
     const filtroCategoria = document.getElementById('filtro-categoria');
     const repuestosGrid = document.getElementById('repuestos-grid');
     const noResultados = document.getElementById('no-resultados');
 
-    // Si los elementos del filtro existen, ejecutamos la lógica
     if (buscadorInput && filtroCategoria && repuestosGrid) {
         
         const repuestoItems = repuestosGrid.querySelectorAll('.repuesto-item');
@@ -63,39 +61,59 @@ document.addEventListener('DOMContentLoaded', () => {
         filtroCategoria.addEventListener('change', filtrarRepuestos);
     }
 
-});
-// ... (Añade esto al final de tu script.js, dentro del evento DOMContentLoaded si ya lo tienes) ...
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    // (Aquí va tu código existente de smooth scroll y filtro de repuestos)
-    
-    // ...
-
-    // Lógica para el toggle de Login/Registro en cuenta.html
+    // 3. Lógica para el toggle de Login/Registro y Simulación de Acceso Administrativo
     const showLoginBtn = document.getElementById('show-login-btn');
     const showRegisterBtn = document.getElementById('show-register-btn');
-    const loginForm = document.getElementById('login-form');
-    const registerForm = document.getElementById('register-form');
+    const loginFormContainer = document.getElementById('login-form');
+    const registerFormContainer = document.getElementById('register-form');
+    
+    // Necesitamos el formulario de login para manejar el submit
+    const loginFormSubmit = document.querySelector('#login-form form');
+    const emailInput = document.getElementById('login-email');
+    const passwordInput = document.getElementById('login-pass');
 
-    // Comprobamos que los elementos existan (para que no dé error en otras páginas)
-    if (showLoginBtn && showRegisterBtn && loginForm && registerForm) {
+    // --- Variables de Simulación de Administrador ---
+    const ADMIN_EMAIL = 'admin@taller.com'; 
+    const ADMIN_PASS = '1234'; // La contraseña simulada
+
+    // Comprobamos que los elementos del Login/Registro existan
+    if (showLoginBtn && showRegisterBtn && loginFormContainer && registerFormContainer) {
         
+        // A. Lógica de Toggling (tal como la tenías)
         showLoginBtn.addEventListener('click', () => {
-            loginForm.classList.add('active');
-            registerForm.classList.remove('active');
+            loginFormContainer.classList.add('active');
+            registerFormContainer.classList.remove('active');
             
             showLoginBtn.classList.add('active');
             showRegisterBtn.classList.remove('active');
         });
 
         showRegisterBtn.addEventListener('click', () => {
-            loginForm.classList.remove('active');
-            registerForm.classList.add('active');
+            loginFormContainer.classList.remove('active');
+            registerFormContainer.classList.add('active');
             
             showLoginBtn.classList.remove('active');
             showRegisterBtn.classList.add('active');
         });
-    }
+        
+        // B. Lógica de Simulación de Acceso Administrativo (Nueva)
+        if (loginFormSubmit) {
+            loginFormSubmit.addEventListener('submit', function(e) {
+                e.preventDefault(); // Detiene el envío normal del formulario
+                
+                const enteredEmail = emailInput.value.trim();
+                const enteredPass = passwordInput.value.trim();
 
-}); // Cierre del DOMContentLoaded
+                if (enteredEmail === ADMIN_EMAIL && enteredPass === ADMIN_PASS) {
+                    // Acceso de Administrador: Redirigir al Dashboard
+                    alert('Acceso de Administrador simulado exitoso. Redirigiendo a Dashboard...');
+                    window.location.href = 'admin-dashboard.html';
+                } else {
+                    // Acceso de Usuario Normal: Simulación (Mantener en la página o redirigir al perfil)
+                    alert('Ingreso de usuario normal simulado. ¡Bienvenido!');
+                    // Aquí iría window.location.href = 'perfil-usuario.html';
+                }
+            });
+        }
+    }
+});

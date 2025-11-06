@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Proveedor - Taller AT</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/img/LOGO.png" type="image/png">
+</head>
+<body class="admin-body">
+    
+    <header class="sidebar">
+        <div class="logo-admin">
+            <img src="assets/img/LOGO.png" alt="Logo Taller">
+            <h3>Panel de Control</h3>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="admin-dashboard.html#inicio"><span class="icon">🏠</span> Inicio</a></li>
+                <li><a href="admin-dashboard.html#inventario"><span class="icon">📦</span> Inventario</a></li>
+                <li><a href="admin-dashboard.html#proveedores" class="active"><span class="icon">🚚</span> Proveedores</a></li>
+                <li><a href="admin-dashboard.html#citas"><span class="icon">📅</span> Citas Agendadas</a></li>
+                <li><a href="admin-dashboard.html#reportes"><span class="icon">📊</span> Reportes y Ventas</a></li>
+                <li class="logout-link"><a href="logout"><span class="icon">❌</span> Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="dashboard-content">
+            
+            <h1>🚚 Registrar Nuevo Proveedor</h1>
+            
+            <div class="form-section-card">
+                <form>
+                    
+                    <div class="form-row-2col">
+                        <div class="form-group">
+                            <label for="nombre">Nombre de la Empresa:</label>
+                            <input type="text" id="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contacto">Persona de Contacto:</label>
+                            <input type="text" id="contacto">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row-2col">
+                         <div class="form-group">
+                            <label for="telefono">Teléfono:</label>
+                            <input type="tel" id="telefono">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row-2col">
+                        <div class="form-group">
+                            <label for="rnc">RNC/Identificación Fiscal:</label>
+                            <input type="text" id="rnc">
+                        </div>
+                        <div class="form-group">
+                            <label for="terminos">Términos de Pago:</label>
+                            <select id="terminos">
+                                <option>Neto 30 Días</option>
+                                <option>Al Contado</option>
+                                <option>Neto 60 Días</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="direccion">Dirección:</label>
+                        <textarea id="direccion" rows="2"></textarea>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button type="submit" class="cta-button">Guardar Proveedor</button>
+                        <a href="admin-dashboard.html#proveedores" class="cta-button btn-cancel">Cancelar y Volver</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+</body>
+</html>
