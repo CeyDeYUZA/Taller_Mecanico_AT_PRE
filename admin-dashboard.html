@@ -96,44 +96,50 @@
             </section>
             
             <section id="proveedores" class="dashboard-section" style="display:none;">
-                <h1> Gestión de Proveedores</h1>
-                
-                <a href="admin-proveedores-add.html" class="cta-button" style="margin-bottom: 20px;">+ Registrar Nuevo Proveedor</a>
+    <h1> Gestión de Proveedores</h1>
+    
+    <a href="admin-proveedores-add.html" class="cta-button" style="margin-bottom: 20px;">+ Registrar Nuevo Proveedor</a>
 
-                <div class="section-card">
-                    <h2>Lista de Proveedores</h2>
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Contacto</th>
-                                <th>Teléfono</th>
-                                <th>Estado</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Mecánica Total Ltda.</td>
-                                <td>Ana Gómez</td>
-                                <td>555-1234</td>
-                                <td><span style="color:var(--verde-exito);">Activo</span></td>
-                                <td><a href="admin-proveedores-add.html?id=P001">Editar</a> | <a href="#">Pedido</a></td>
-                            </tr>
-                            <tr>
-                                <td>Neumáticos Rápidos</td>
-                                <td>Carlos Ruiz</td>
-                                <td>555-5678</td>
-                                <td>Activo</td>
-                                <td><a href="admin-proveedores-add.html?id=P002">Editar</a> | <a href="#">Pedido</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
+    <div class="section-card">
+        <h2>Lista de Proveedores</h2>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Contacto</th>
+                    <th>Teléfono</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mecánica Total Ltda.</td>
+                    <td>Ana Gómez</td>
+                    <td>555-1234</td>
+                    <td><span style="color:var(--verde-exito);">Activo</span></td>
+                    <td>
+                        <a href="admin-proveedores-add.html?id=P001" class="cta-link">Editar</a> | 
+                        <a href="orden-de-compra.html?proveedor=P001" class="cta-link btn-success">Pedido</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Neumáticos Rápidos</td>
+                    <td>Carlos Ruiz</td>
+                    <td>555-5678</td>
+                    <td>Activo</td>
+                    <td>
+                        <a href="admin-proveedores-add.html?id=P002" class="cta-link">Editar</a> | 
+                        <a href="orden-de-compra.html?proveedor=P002" class="cta-link btn-success">Pedido</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
             
             <section id="citas" class="dashboard-section" style="display:none;">
-                <h1>📅 Citas Agendadas</h1>
+                <h1> Citas Agendadas</h1>
                 
                 <div class="section-card">
                     <h2>Citas para Hoy (05/Nov/2025)</h2>

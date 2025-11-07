@@ -1,24 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.sidebar-nav a');
-    const contentSections = document.querySelectorAll('.dashboard-section');
+    // Las siguientes dos líneas asumen que este script se usa también en admin-dashboard.html
+    const contentSections = document.querySelectorAll('.dashboard-section'); 
+
+    // ===============================================
+    // 1. LÓGICA DE NAVEGACIÓN (Tu código original)
+    // ===============================================
 
     // Función para mostrar la sección activa
     const showSection = (targetId) => {
-        // Ocultar todas las secciones
-        contentSections.forEach(section => {
-            section.style.display = 'none';
-        });
+        // Solo ejecuta esto si contentSections existen (es decir, en admin-dashboard)
+        if (contentSections.length > 0) {
+            // Ocultar todas las secciones
+            contentSections.forEach(section => {
+                section.style.display = 'none';
+            });
 
-        // Mostrar la sección objetivo
-        const targetSection = document.querySelector(targetId);
-        if (targetSection) {
-            targetSection.style.display = 'block';
+            // Mostrar la sección objetivo
+            const targetSection = document.querySelector(targetId);
+            if (targetSection) {
+                targetSection.style.display = 'block';
+            }
         }
 
         // Remover la clase 'active' de todos los enlaces y añadirla al activo
         navLinks.forEach(link => {
+            // Asegúrate de usar solo el hash para la comparación
+            const linkHash = new URL(link.href).hash; 
             link.classList.remove('active');
-            if (link.getAttribute('href') === targetId) {
+            if (linkHash === targetId) {
                 link.classList.add('active');
             }
         });
@@ -27,21 +37,97 @@ document.addEventListener('DOMContentLoaded', () => {
     // Manejar el evento de clic en los enlaces de la barra lateral
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault(); // Previene la navegación por defecto
-            const targetId = this.getAttribute('href');
-            
+            // Solo previene el default si es un enlace de navegación interna
+            const targetId = new URL(this.href).hash;
             if (targetId.startsWith('#')) {
+                 e.preventDefault(); 
                  showSection(targetId);
-            } else if (targetId === 'logout') {
+            } else if (this.getAttribute('href') === 'logout') {
                  // Simulación de cierre de sesión
+                 e.preventDefault(); 
                  alert('Cerrando sesión administrativa.');
                  window.location.href = 'cuenta.html'; // Redirigir al login principal
             }
-           
         });
     });
 
     // Mostrar la sección de inicio al cargar (o la sección definida en el hash URL)
     const initialSection = window.location.hash || '#inicio';
-    showSection(initialSection);
+    // Comprobación para evitar errores si no estamos en admin-dashboard.html
+    if (contentSections.length > 0) {
+        showSection(initialSection);
+    }
+    
+    // ===============================================
+    // 2. FUNCIÓN PARA CARGAR DATOS EN MODO EDICIÓN
+    // ===============================================
+    
+    /**
+     * @brief Simula la carga de datos de un repuesto por su ID y llena el formulario.
+     * En una aplicación real, esto haría una llamada a la API/Base de Datos.
+     * @param {string} repuestoId El ID del repuesto a cargar.
+     */
+    const loadRepuestoData = (repuestoId) => {
+        console.log(`Cargando datos del repuesto ID: ${repuestoId}...`);
+
+        // **SIMULACIÓN DE DATOS (REEMPLAZAR CON FETCH REAL EN PRODUCCIÓN)**
+        const mockData = {
+            'nombre': `Pastillas de Freno Premium (${repuestoId})`,
+            'sku': 'PF-2024-X',
+            'categoria': 'Frenos',
+            'proveedor': 'Mecánica Total Ltda.',
+            'stock': 45,
+            'stock-minimo': 10,
+            'precio-compra': 25.50,
+            'precio-venta': 45.99
+        };
+
+        // Llenar los campos del formulario con los datos simulados
+        document.getElementById('nombre').value = mockData.nombre;
+        document.getElementById('sku').value = mockData.sku;
+        document.getElementById('categoria').value = mockData.categoria;
+        document.getElementById('proveedor').value = mockData.proveedor;
+        document.getElementById('stock').value = mockData.stock;
+        document.getElementById('stock-minimo').value = mockData['stock-minimo'];
+        document.getElementById('precio-compra').value = mockData['precio-compra'];
+        document.getElementById('precio-venta').value = mockData['precio-venta'];
+        
+        alert(`¡Modo Edición Activado! Datos de ejemplo cargados para ID: ${repuestoId}`);
+        // Muestra un mensaje de éxito/carga al usuario
+    };
+
+    // ===============================================
+    // 3. LÓGICA DEL FORMULARIO INVENTARIO
+    // ===============================================
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const repuestoId = urlParams.get('id'); // Busca el parámetro 'id' en la URL
+
+    const formTitle = document.getElementById('form-title');
+    const submitButton = document.getElementById('submit-button');
+    
+    // Solo ejecuta esta lógica si los elementos existen en la página
+    if (formTitle && submitButton) {
+        if (repuestoId) {
+            // **MODO EDICIÓN**
+            formTitle.textContent = `📝 Editar Repuesto ID: ${repuestoId}`;
+            submitButton.textContent = 'Actualizar Repuesto';
+            
+            // 🚨 SOLUCIÓN: Llama a la función para cargar los datos
+            loadRepuestoData(repuestoId); 
+
+        } else {
+            // **MODO AÑADIR** (Valor por defecto)
+            formTitle.textContent = '📦 Añadir Nuevo Repuesto';
+            submitButton.textContent = 'Guardar Repuesto';
+        }
+        
+        // Manejar el envío del formulario para edición/guardado (ejemplo)
+        document.getElementById('repuesto-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const action = repuestoId ? 'Actualizar' : 'Guardar';
+            alert(`Acción: ${action} repuesto. ID: ${repuestoId || 'Nuevo'}. (Funcionalidad de envío real no implementada)`);
+            // Aquí iría la lógica para enviar los datos a tu backend
+        });
+    }
 });

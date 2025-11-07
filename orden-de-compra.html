@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Orden de Compra - Taller AT</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="icon" href="assets/img/LOGO.png" type="image/png">
+</head>
+<body class="admin-body">
+    
+    <header class="sidebar">
+        <div class="logo-admin">
+            <img src="assets/img/LOGO.png" alt="Logo Taller">
+            <h3>Panel de Control</h3>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="admin-dashboard.html#inicio"><span class="icon"></span> Inicio</a></li>
+                <li><a href="admin-dashboard.html#inventario"><span class="icon"></span> Inventario</a></li>
+                <li><a href="admin-dashboard.html#proveedores" class="active"><span class="icon"></span> Proveedores</a></li>
+                <li><a href="admin-dashboard.html#citas"><span class="icon"></span> Citas Agendadas</a></li>
+                <li><a href="admin-dashboard.html#reportes"><span class="icon"></span> Reportes y Ventas</a></li>
+                <li class="logout-link"><a href="logout"><span class="icon"></span> Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="dashboard-content">
+            
+            <h1 id="order-title">🛒 Nueva Orden de Compra</h1>
+            
+            <div class="form-section-card">
+                <h2>Detalles del Pedido</h2>
+                <form id="purchaseOrderForm">
+                    
+                    <div class="form-row-2col">
+                        <div class="form-group">
+                            <label for="order_id">Nº de Orden:</label>
+                            <input type="text" id="order_id" value="OC-0015" readonly> 
+                        </div>
+                        <div class="form-group">
+                            <label for="proveedor_id">Proveedor ID:</label>
+                            <input type="text" id="proveedor_id" required readonly> 
+                        </div>
+                    </div>
+                    
+                    <div class="form-row-2col">
+                         <div class="form-group">
+                            <label for="fecha_emision">Fecha de Emisión:</label>
+                            <input type="date" id="fecha_emision" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="terminos">Términos de Pago:</label>
+                            <select id="terminos">
+                                <option value="N30">Neto 30 Días</option>
+                                <option value="CONTADO">Al Contado</option>
+                                <option value="N60">Neto 60 Días</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 30px;">Ítems Solicitados</h3>
+                    <table class="data-table" id="items-table">
+                        <thead>
+                            <tr>
+                                <th>Artículo</th>
+                                <th>Cantidad</th>
+                                <th>Precio Unitario (Bs.)</th>
+                                <th>Subtotal (Bs.)</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="no-items-row">
+                                <td colspan="5" style="text-align: center;">Haz clic en "Añadir Ítem" para comenzar.</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3" style="text-align: right; font-weight: bold;">TOTAL:</td>
+                                <td id="total-amount" style="font-weight: bold;">Bs. 0.00</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                    <button type="button" class="cta-button" id="add-item-button" style="margin-top: 15px;">+ Añadir Ítem</button>
+
+                    <div class="action-buttons" style="margin-top: 40px;">
+                        <button type="submit" class="cta-button btn-success">Guardar y Enviar Orden</button>
+                        <a href="admin-dashboard.html#proveedores" class="cta-button btn-cancel">Cancelar y Volver</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        /**
+         * Función para leer un parámetro de la URL
+         */
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            const results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const proveedorId = getUrlParameter('proveedor');
+            
+            // 1. Mostrar el ID del proveedor en el formulario y título
+            if (proveedorId) {
+                document.getElementById('proveedor_id').value = proveedorId;
+                document.getElementById('order-title').textContent = `🛒 Nueva Orden de Compra para Proveedor: ${proveedorId}`;
+            } else {
+                document.getElementById('proveedor_id').value = 'No especificado';
+            }
+            
+            // 2. Establecer la fecha actual por defecto
+            // Obtener fecha en formato YYYY-MM-DD
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            document.getElementById('fecha_emision').value = `${year}-${month}-${day}`;
+
+
+            // 3. Lógica para añadir ítems dinámicamente
+            let itemCount = 0;
+            const itemsTableBody = document.querySelector('#items-table tbody');
+            const noItemsRow = document.getElementById('no-items-row');
+            const addItemButton = document.getElementById('add-item-button');
+
+            // Función para calcular el total
+            function recalculateTotal() {
+                let grandTotal = 0;
+                // Selecciona todas las filas que no son el mensaje inicial
+                const rows = document.querySelectorAll('#items-table tbody tr:not(#no-items-row)');
+                
+                rows.forEach(row => {
+                    // Lee los valores de cantidad y precio
+                    const qtyInput = row.querySelector('.item-qty');
+                    const priceInput = row.querySelector('.item-price');
+                    
+                    const qty = parseFloat(qtyInput.value) || 0;
+                    const price = parseFloat(priceInput.value) || 0;
+                    
+                    const subtotal = qty * price;
+                    grandTotal += subtotal;
+                    
+                    // Actualiza el subtotal en la fila
+                    row.querySelector('.item-subtotal').textContent = `Bs. ${subtotal.toFixed(2)}`;
+                });
+
+                // Actualiza el total general en el footer de la tabla
+                document.getElementById('total-amount').textContent = `Bs. ${grandTotal.toFixed(2)}`;
+            }
+
+            addItemButton.addEventListener('click', () => {
+                itemCount++;
+                if (itemCount === 1 && noItemsRow) {
+                    noItemsRow.remove(); // Elimina la fila de mensaje la primera vez
+                }
+
+                const newRow = itemsTableBody.insertRow();
+                newRow.id = `item-row-${itemCount}`;
+                
+                // Estructura HTML de la nueva fila de ítem
+                newRow.innerHTML = `
+                    <td><input type="text" placeholder="Nombre del repuesto" required style="width: 100%;"></td>
+                    <td><input type="number" value="1" min="1" required style="width: 80px; text-align: center;" class="item-qty"></td>
+                    <td><input type="number" value="0.00" min="0.01" step="0.01" required style="width: 100px; text-align: right;" class="item-price"></td>
+                    <td class="item-subtotal">Bs. 0.00</td>
+                    <td><button type="button" class="cta-button btn-cancel btn-small remove-item">Quitar</button></td>
+                `;
+
+                // Añadir escuchadores de eventos para recalcular el total al cambiar QTY o Precio
+                const qtyInput = newRow.querySelector('.item-qty');
+                const priceInput = newRow.querySelector('.item-price');
+                qtyInput.addEventListener('input', recalculateTotal);
+                priceInput.addEventListener('input', recalculateTotal);
+                
+                // Lógica de eliminación de ítem
+                newRow.querySelector('.remove-item').addEventListener('click', function() {
+                    newRow.remove();
+                    recalculateTotal();
+                    // Si se eliminan todos los ítems, restaurar el mensaje
+                    if (document.querySelectorAll('#items-table tbody tr').length === 0) {
+                         itemsTableBody.innerHTML = '<tr id="no-items-row"><td colspan="5" style="text-align: center;">Haz clic en "Añadir Ítem" para comenzar.</td></tr>';
+                    }
+                });
+                
+                recalculateTotal();
+            });
+
+
+            // 4. Lógica para Guardar y Enviar la Orden (simulada)
+            document.getElementById('purchaseOrderForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert(`Orden de Compra OC-0015 enviada con éxito al proveedor ${proveedorId}.`);
+                
+                // Redirigir de vuelta a la lista de proveedores
+                window.location.href = 'admin-dashboard.html#proveedores';
+            });
+        });
+    </script>
+</body>
+</html>

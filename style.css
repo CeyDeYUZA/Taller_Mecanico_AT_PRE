@@ -6,6 +6,10 @@
     --gris-oscuro: #4a4a4a;
     --blanco: #ffffff;
     --gris-claro-fondo: #f4f4f4;
+    
+    /* Variables necesarias para el Dashboard */
+    --rojo-alerta: #dc3545;
+    --verde-exito: #28a745;
 }
 
 /* Reset básico y Estilos Generales */
@@ -623,7 +627,7 @@ footer .copy {
 }
 
 
-/*  ESTILOS PARA LA SECCIÓN DE AGENDAR CITA (FORM-CITA)  */
+/* ESTILOS PARA LA SECCIÓN DE AGENDAR CITA (FORM-CITA)  */
 
 
 #form-cita {
@@ -814,8 +818,8 @@ footer .copy {
 /* Contenedor del logo */
 .logo-option img {
     /* ** TAMAÑO DE LA IMAGEN EN LA FILA ** */
-    width: 120px; 
-    height: 120px;
+    width: 40px; 
+    height: 40px; /* Reducido para mejor vista en fila */
     object-fit: contain;
     padding: 0;
     
@@ -951,17 +955,6 @@ footer .copy {
 /* ESTILOS ESPECÍFICOS DEL DASHBOARD ADMIN   */
 /* ========================================= */
 
-/* Variables de Colores (Si ya las tienes, ignora este bloque) */
-:root {
-    --azul-oscuro: #003366;
-    --naranja-vibrante: #FF6D2D;
-    --blanco: #FFFFFF;
-    --gris-claro-fondo: #f4f4f4;
-    --rojo-alerta: #dc3545;
-    --verde-exito: #28a745;
-    --gris-oscuro: #555;
-}
-
 /* Layout Principal del Dashboard (CLASE CRUCIAL) */
 body.admin-body {
     display: flex; 
@@ -996,14 +989,12 @@ body.admin-body main {
     margin-bottom: 30px;
     padding-bottom: 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    /* AJUSTE PARA EL LOGO: Fondo claro para que se vea la imagen original */
     
     padding-top: 20px; 
-    margin: 0 -20px 30px -20px; /* Extiende el fondo blanco a los bordes del sidebar */
+    margin: 0 -20px 30px -20px; 
 }
 .sidebar .logo-admin img {
     width: 150px;
-    /* FILTRO INVERTIDO ELIMINADO para mantener los colores del logo original */
 }
 .sidebar h3 {
     color: var(--naranja-vibrante);
@@ -1153,12 +1144,30 @@ body.admin-body main {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+/* Estilos para los botones de acción específicos */
 .cta-button.btn-cancel {
     background-color: #6c757d;
 }
+.cta-button.btn-cancel:hover {
+    background-color: #5a6268;
+}
+
+/* Estilo para el botón HACER PEDIDO (Verde Éxito) */
 .cta-button.btn-success {
     background-color: var(--verde-exito);
 }
+.cta-button.btn-success:hover {
+    background-color: #1e7e34; /* Tono más oscuro de verde */
+}
+
+/* Estilo para el botón ELIMINAR (Rojo Alerta) */
+.cta-button#delete-button {
+    background-color: var(--rojo-alerta);
+}
+.cta-button#delete-button:hover {
+    background-color: #bd2130; /* Tono más oscuro de rojo */
+}
+
 
 /* --- FORMULARIOS --- */
 .form-row-2col {
@@ -1222,10 +1231,16 @@ body.admin-body main {
         height: auto;
         position: relative;
     }
+    .dashboard-content {
+        padding: 20px;
+    }
     .detail-grid, .stats-grid {
         grid-template-columns: 1fr;
     }
     .form-row-2col {
+        flex-direction: column;
+    }
+    .action-buttons {
         flex-direction: column;
     }
 }

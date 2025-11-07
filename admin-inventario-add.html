@@ -17,12 +17,12 @@
         
         <nav class="sidebar-nav">
             <ul>
-                <li><a href="admin-dashboard.html#inicio"><span class="icon">🏠</span> Inicio</a></li>
-                <li><a href="admin-dashboard.html#inventario" class="active"><span class="icon">📦</span> Inventario</a></li>
-                <li><a href="admin-dashboard.html#proveedores"><span class="icon">🚚</span> Proveedores</a></li>
-                <li><a href="admin-dashboard.html#citas"><span class="icon">📅</span> Citas Agendadas</a></li>
-                <li><a href="admin-dashboard.html#reportes"><span class="icon">📊</span> Reportes y Ventas</a></li>
-                <li class="logout-link"><a href="logout"><span class="icon">❌</span> Cerrar Sesión</a></li>
+                <li><a href="admin-dashboard.html#inicio"><span class="icon"></span> Inicio</a></li>
+                <li><a href="admin-dashboard.html#inventario" class="active"><span class="icon"></span> Inventario</a></li>
+                <li><a href="admin-dashboard.html#proveedores"><span class="icon"></span> Proveedores</a></li>
+                <li><a href="admin-dashboard.html#citas"><span class="icon"></span> Citas Agendadas</a></li>
+                <li><a href="admin-dashboard.html#reportes"><span class="icon"></span> Reportes y Ventas</a></li>
+                <li class="logout-link"><a href="logout"><span class="icon"></span> Cerrar Sesión</a></li>
             </ul>
         </nav>
     </header>
@@ -30,10 +30,10 @@
     <main>
         <div class="dashboard-content">
             
-            <h1>📦 Añadir / Editar Repuesto</h1>
+            <h1 id="form-title"> Gestionar Repuesto</h1>
             
             <div class="form-section-card">
-                <form>
+                <form id="repuesto-form">
                     
                     <div class="form-row-2col">
                         <div class="form-group">
@@ -91,7 +91,7 @@
                     </div>
 
                     <div class="action-buttons">
-                        <button type="submit" class="cta-button">Guardar Repuesto</button>
+                        <button type="submit" id="submit-button" class="cta-button">Guardar Cambios</button> 
                         <a href="admin-dashboard.html#inventario" class="cta-button btn-cancel">Cancelar y Volver</a>
                     </div>
                 </form>
@@ -99,4 +99,4 @@
         </div>
     </main>
 </body>
-</html>
+</html> 

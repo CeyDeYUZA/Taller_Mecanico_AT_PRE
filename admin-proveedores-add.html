@@ -16,12 +16,12 @@
         </div>
         <nav class="sidebar-nav">
             <ul>
-                <li><a href="admin-dashboard.html#inicio"><span class="icon">🏠</span> Inicio</a></li>
-                <li><a href="admin-dashboard.html#inventario"><span class="icon">📦</span> Inventario</a></li>
-                <li><a href="admin-dashboard.html#proveedores" class="active"><span class="icon">🚚</span> Proveedores</a></li>
-                <li><a href="admin-dashboard.html#citas"><span class="icon">📅</span> Citas Agendadas</a></li>
-                <li><a href="admin-dashboard.html#reportes"><span class="icon">📊</span> Reportes y Ventas</a></li>
-                <li class="logout-link"><a href="logout"><span class="icon">❌</span> Cerrar Sesión</a></li>
+                <li><a href="admin-dashboard.html#inicio"><span class="icon"></span> Inicio</a></li>
+                <li><a href="admin-dashboard.html#inventario"><span class="icon"></span> Inventario</a></li>
+                <li><a href="admin-dashboard.html#proveedores" class="active"><span class="icon"></span> Proveedores</a></li>
+                <li><a href="admin-dashboard.html#citas"><span class="icon"></span> Citas Agendadas</a></li>
+                <li><a href="admin-dashboard.html#reportes"><span class="icon"></span> Reportes y Ventas</a></li>
+                <li class="logout-link"><a href="logout"><span class="icon"></span> Cerrar Sesión</a></li>
             </ul>
         </nav>
     </header>
@@ -29,10 +29,10 @@
     <main>
         <div class="dashboard-content">
             
-            <h1>🚚 Registrar Nuevo Proveedor</h1>
+            <h1 id="form-title"> Registrar Nuevo Proveedor</h1>
             
             <div class="form-section-card">
-                <form>
+                <form id="supplierForm">
                     
                     <div class="form-row-2col">
                         <div class="form-group">
@@ -64,9 +64,9 @@
                         <div class="form-group">
                             <label for="terminos">Términos de Pago:</label>
                             <select id="terminos">
-                                <option>Neto 30 Días</option>
-                                <option>Al Contado</option>
-                                <option>Neto 60 Días</option>
+                                <option value="N30">Neto 30 Días</option>
+                                <option value="CONTADO">Al Contado</option>
+                                <option value="N60">Neto 60 Días</option>
                             </select>
                         </div>
                     </div>
@@ -77,7 +77,9 @@
                     </div>
 
                     <div class="action-buttons">
-                        <button type="submit" class="cta-button">Guardar Proveedor</button>
+                        <button type="submit" class="cta-button" id="save-button">Guardar Proveedor</button>
+                        <div id="extra-buttons-container" style="display: flex; gap: 15px;">
+                        </div>
                         <a href="admin-dashboard.html#proveedores" class="cta-button btn-cancel">Cancelar y Volver</a>
                     </div>
                 </form>
@@ -85,5 +87,99 @@
         </div>
     </main>
     
+    <script>
+        // CÓDIGO JAVASCRIPT PARA GESTIONAR LA LÓGICA DE EDITAR/ELIMINAR/PEDIDO
+        
+        // 1. SIMULACIÓN DE DATOS DE PROVEEDORES
+        const supplierData = {
+            'P001': {
+                nombre: 'Mecánica Total Ltda.',
+                contacto: 'Ana Gómez',
+                telefono: '555-1234',
+                email: 'ana@mecanicatotal.com',
+                rnc: 'RNC-1111',
+                terminos: 'N30',
+                direccion: 'Calle Falsa 123, Ciudad'
+            },
+            'P002': {
+                nombre: 'Neumáticos Rápidos',
+                contacto: 'Carlos Ruiz',
+                telefono: '555-5678',
+                email: 'carlos@neumaticosrapid.com',
+                rnc: 'RNC-2222',
+                terminos: 'CONTADO',
+                direccion: 'Avenida Siempre Viva 742'
+            }
+        };
+
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            const results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const supplierId = getUrlParameter('id');
+            const formTitle = document.getElementById('form-title');
+            const saveButton = document.getElementById('save-button');
+            const extraButtonsContainer = document.getElementById('extra-buttons-container');
+
+            if (supplierId && supplierData[supplierId]) {
+                // Estamos en modo EDICIÓN
+                formTitle.textContent = 'Editar Proveedor: ' + supplierId;
+                saveButton.textContent = 'Actualizar Proveedor';
+
+                const supplier = supplierData[supplierId];
+                
+                // Rellenar el formulario con los datos
+                document.getElementById('nombre').value = supplier.nombre;
+                document.getElementById('contacto').value = supplier.contacto;
+                document.getElementById('telefono').value = supplier.telefono;
+                document.getElementById('email').value = supplier.email;
+                document.getElementById('rnc').value = supplier.rnc;
+                document.getElementById('terminos').value = supplier.terminos;
+                document.getElementById('direccion').value = supplier.direccion;
+
+                // Añadir botones de Pedido y Eliminar
+                extraButtonsContainer.innerHTML = `
+                    <button type="button" class="cta-button btn-success" id="order-button">
+                        Hacer Pedido
+                    </button>
+                    <button type="button" class="cta-button" id="delete-button">
+                        Eliminar Proveedor
+                    </button>
+                `;
+
+                // Lógica del botón ELIMINAR
+                document.getElementById('delete-button').addEventListener('click', () => {
+                    if (confirm(`¿Está seguro de que desea eliminar al proveedor ${supplier.nombre} (${supplierId})?`)) {
+                        alert(`Proveedor ${supplierId} eliminado (simulado).`);
+                        window.location.href = 'admin-dashboard.html#proveedores'; 
+                    }
+                });
+
+                // Lógica del botón HACER PEDIDO (CORREGIDO PARA REDIRECCIONAR)
+                document.getElementById('order-button').addEventListener('click', () => {
+                    // Redirigir a la página de Órdenes de Compra, pasando el ID del proveedor
+                    window.location.href = `orden-de-compra.html?proveedor=${supplierId}`;
+                });
+
+            } else {
+                // Estamos en modo AÑADIR (Registro)
+                formTitle.textContent = ' Registrar Nuevo Proveedor';
+            }
+            
+            // Lógica para Guardar/Actualizar
+            document.getElementById('supplierForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const action = supplierId ? 'actualizado' : 'añadido';
+                alert(`Proveedor ${action} con éxito.`);
+                
+                // Simulación de guardar, luego redirigir a la lista de proveedores
+                window.location.href = 'admin-dashboard.html#proveedores';
+            });
+        });
+    </script>
 </body>
 </html>
