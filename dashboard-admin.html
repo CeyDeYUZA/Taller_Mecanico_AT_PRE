@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administrativo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-body">
+
+    <!-- ========== SIDEBAR ========== -->
+    <aside class="sidebar">
+        <div class="logo-admin">
+            <img src="resources/logo.png" alt="Logo Admin">
+        </div>
+        <h3>Panel de Control</h3>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="#" class="active"><span class="icon">🏠</span>Inicio</a></li>
+                <li><a href="#"><span class="icon">📅</span>Citas</a></li>
+                <li><a href="#"><span class="icon">🧩</span>Repuestos</a></li>
+                <li><a href="#"><span class="icon">👥</span>Clientes</a></li>
+                <li><a href="#"><span class="icon">🧰</span>Servicios</a></li>
+            </ul>
+        </nav>
+        <div class="logout-link">
+            <a href="cuenta.html" class="cta-button">Cerrar Sesión</a>
+        </div>
+    </aside>
+
+    <!-- ========== CONTENIDO PRINCIPAL ========== -->
+    <main>
+        <section class="dashboard-content">
+            <h1>Bienvenido al Panel Administrativo</h1>
+
+            <!-- Tarjetas de estadísticas -->
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="number">12</div>
+                    <div class="label">Citas Pendientes</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">30</div>
+                    <div class="label">Repuestos Disponibles</div>
+                </div>
+                <div class="stat-box alert">
+                    <div class="number">3</div>
+                    <div class="label">Alertas</div>
+                </div>
+            </div>
+
+            <!-- Sección de administración de citas -->
+            <div class="section-card">
+                <h2>Gestión de Citas</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Cliente</th>
+                            <th>Fecha</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>Juan Pérez</td>
+                            <td>2025-11-15</td>
+                            <td><span class="status-badge pendiente">Pendiente</span></td>
+                            <td>
+                                <a href="#">Ver</a> |
+                                <a href="#">Editar</a> |
+                                <a href="#">Eliminar</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>002</td>
+                            <td>María López</td>
+                            <td>2025-11-20</td>
+                            <td><span class="status-badge confirmada">Confirmada</span></td>
+                            <td>
+                                <a href="#">Ver</a> |
+                                <a href="#">Editar</a> |
+                                <a href="#">Eliminar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="action-buttons">
+                    <button class="cta-button btn-success">Nueva Cita</button>
+                    <button class="cta-button btn-cancel">Actualizar</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
