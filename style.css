@@ -1,59 +1,60 @@
 /* Variables de Colores */
 
 :root {
-    --azul-oscuro: #003366;
-    --naranja-vibrante: #ff6d2d;
-    --gris-oscuro: #4a4a4a;
-    --blanco: #ffffff;
-    --gris-claro-fondo: #f4f4f4;
-    
-    /* Variables necesarias para el Dashboard */
-    --rojo-alerta: #dc3545;
-    --verde-exito: #28a745;
+  --azul-oscuro: #003366;
+  --naranja-vibrante: #ff6d2d;
+
+  --gris-oscuro: #4a4a4a;
+  --blanco: #ffffff;
+  --gris-claro-fondo: #f4f4f4;
+
+  /* Variables necesarias para el Dashboard */
+  --rojo-alerta: #dc3545;
+  --verde-exito: #28a745;
 }
 
 /* Reset básico y Estilos Generales */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: var(--gris-oscuro);
-    background-color: var(--blanco);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--gris-oscuro);
+  background-color: var(--blanco);
 }
 
 a {
-    text-decoration: none;
-    color: var(--azul-oscuro);
-    transition: color 0.3s ease;
+  text-decoration: none;
+  color: var(--azul-oscuro);
+  transition: color 0.3s ease;
 }
 
 a:hover {
-    color: var(--naranja-vibrante);
+  color: var(--naranja-vibrante);
 }
 
 img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 main {
-    padding-top: 80px;
-    /* Evita que el contenido se esconda bajo el header sticky */
+  padding-top: 80px;
+  /* Evita que el contenido se esconda bajo el header sticky */
 }
 
 /* Secciones Generales */
 
 section {
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 /* Fondo alterno para secciones en index.html */
@@ -61,882 +62,619 @@ section {
 #banners-promocionales,
 #mision-vision,
 #ubicacion-principal {
-    background-color: var(--gris-claro-fondo);
+  background-color: var(--gris-claro-fondo);
 }
 
 h2 {
-    font-size: 2.5em;
-    margin-bottom: 40px;
-    color: var(--azul-oscuro);
-    position: relative;
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  color: var(--azul-oscuro);
+  position: relative;
 }
 
 h2::after {
-    /* Subrayado decorativo */
-    content: "";
-    display: block;
-    width: 60px;
-    height: 4px;
-    background-color: var(--naranja-vibrante);
-    margin: 10px auto 0;
+  /* Subrayado decorativo */
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--naranja-vibrante);
+  margin: 10px auto 0;
 }
 
 h3 {
-    color: var(--azul-oscuro);
-    margin-bottom: 15px;
-    font-size: 1.5em;
+  color: var(--azul-oscuro);
+  margin-bottom: 15px;
+  font-size: 1.5em;
 }
 
 /* Header y Navegación */
 
 header {
-    background-color: var(--azul-oscuro);
-    color: var(--blanco);
-    padding: 15px 0;
-    position: fixed;
-    /* Header fijo */
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background-color: var(--azul-oscuro);
+  color: var(--blanco);
+  padding: 15px 0;
+  position: fixed;
+  /* Header fijo */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .navbar-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 }
 
 .logo img {
-    height: 50px;
-    /* filter: invert(1); -> Descomenta si tu logo es oscuro y necesita ser blanco */
+  height: 90px;
+  /* filter: invert(1); -> Descomenta si tu logo es oscuro y necesita ser blanco */
 }
 
 .main-nav ul {
-    list-style: none;
-    display: flex;
+  list-style: none;
+  display: flex;
 }
 
 .main-nav ul li {
-    margin-left: 30px;
+  margin-left: 30px;
 }
 
 .main-nav ul li a {
-    color: var(--blanco);
-    font-weight: bold;
-    padding: 5px 0;
-    position: relative;
+  color: var(--blanco);
+  font-weight: bold;
+  padding: 15px 0;
+  position: relative;
+  font-size: 19px;
 }
 
 /* Subrayado para el link activo */
 
 .main-nav ul li a.active,
 .main-nav ul li a:hover {
-    color: var(--naranja-vibrante);
+  color: var(--naranja-vibrante);
 }
 
 .main-nav ul li a.active::after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: var(--naranja-vibrante);
-    position: absolute;
-    bottom: -5px;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 5px;
+  background-color: var(--naranja-vibrante);
+  position: absolute;
+  bottom: -5px;
 }
 
 /* Botones CTA */
 
 .cta-button {
-    background-color: var(--azul-oscuro);
-    color: var(--blanco);
-    border: 2px solid var(--azul-oscuro);
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease,
-        border-color 0.3s ease;
+  background-color: var(--azul-oscuro);
+  color: var(--blanco);
+  border: 2px solid var(--azul-oscuro);
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .cta-button:hover {
-    background-color: var(--naranja-vibrante);
-    color: var(--azul-oscuro);
-    border-color: var(--naranja-vibrante);
+  background-color: var(--naranja-vibrante);
+  color: var(--azul-oscuro);
+  border-color: var(--naranja-vibrante);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 18px;
+}
+
+.account-link {
+  color: var(--blanco);
+  font-weight: bold;
+  padding: 10px 0;
+  position: relative;
+  border: 2px solid transparent;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.account-link:hover,
+.account-link.active {
+  color: var(--naranja-vibrante);
+  border-color: var(--naranja-vibrante);
 }
 
 /* Hero Section (index.html) */
 
-/* Secciones Generales */
-section {
-    padding: 60px 20px;
-    max-width: 1200px; /* Limitación de ancho general */
-    margin: 0 auto;
-    text-align: center;
-}
-
-/* --- EXCEPCIÓN PARA HERO (PARA QUE OCUPE EL 100% DE ANCHO) --- */
 #hero {
-    /* Mantenemos tus estilos de Hero... */
-    background: url("resources/hero.webp") no-repeat center center/cover;
-    color: var(--blanco);
-    text-align: center;
-    padding: 180px 20px;
-    min-height: 700px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    margin-top: -50px;
-    
-    /* ¡Añadimos estas dos propiedades para ignorar el límite de 'section'! */
-    max-width: 100%;
-    width: 100%;
-    
-    /* Y si tu HTML usa <main>, también necesitas anular el padding horizontal de tu section: */
-    padding-left: 0;
-    padding-right: 0;
+  background: url("resources/hero.webp") no-repeat center center/cover;
+  color: var(--blanco);
+  text-align: center;
+  padding: 180px 20px;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: -50px;
+
+  max-width: 100%;
+  width: 100%;
+
+  padding-left: 0;
+  padding-right: 0;
 }
 
-/* También aplica la corrección al contenedor interno (si lo tienes): */
 .hero-content {
-    /* Si el contenido del Hero se ve muy ancho, puedes darle un max-width */
-    max-width: 1200px;
-    margin: 0 auto; /* Para centrar el contenido */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 #hero::before {
-    /* Capa oscura */
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+  /* Capa oscura */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .hero-content {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 #hero h1 {
-    font-size: 3em;
-    margin-bottom: 15px;
+  font-size: 3em;
+  margin-bottom: 15px;
 }
 
 #hero p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
+  font-size: 1.2em;
+  margin-bottom: 30px;
 }
 
 /* Banners (index.html) */
 
 .banners-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
 }
 
 .banner {
-    background-color: var(--blanco);
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--blanco);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .banner:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .banner img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
 .banner h3 {
-    padding: 15px 15px 10px;
+  padding: 15px 15px 10px;
 }
 
 .banner p {
-    margin: 0 15px 15px;
+  margin: 0 15px 15px;
 }
 
 .banner-link {
-    display: block;
-    background-color: var(--naranja-vibrante);
-    color: var(--blanco);
-    padding: 10px 15px;
-    text-align: center;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+  display: block;
+  background-color: var(--naranja-vibrante);
+  color: var(--blanco);
+  padding: 10px 15px;
+  text-align: center;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 .banner-link:hover {
-    background-color: #dd5b28;
-    /* Naranja más oscuro */
-    color: var(--blanco);
+  background-color: #dd5b28;
+  color: var(--blanco);
 }
 
-/* Quiénes Somos (index.html) */
-
 .about-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 40px;
-    text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+  text-align: left;
 }
 
 .about-text {
-    flex: 1;
-    min-width: 300px;
+  flex: 1;
+  min-width: 300px;
 }
 
 .about-image {
-    flex: 1;
-    min-width: 300px;
+  flex: 1;
+  min-width: 300px;
 }
 
 .about-image img {
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Misión y Visión (index.html) */
 
 .mision-vision-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
 }
 
 .mision,
 .vision {
-    flex: 1;
-    min-width: 280px;
-    background-color: var(--blanco);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  flex: 1;
+  min-width: 280px;
+  background-color: var(--blanco);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 /* Ubicación (index.html) */
 
 .map-container {
-    border-radius: 8px;
-    overflow: hidden;
-    margin-top: 30px;
-    border: 3px solid var(--azul-oscuro);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 30px;
+  border: 3px solid var(--azul-oscuro);
 }
 
 /* Grids de Sucursales y Servicios */
 
 .sucursales-grid,
 .servicios-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
 }
 
 .sucursal-card,
 .servicio-item {
-    background-color: var(--blanco);
-    padding: 0;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    text-align: center;
-    transition: transform 0.3s ease;
-    overflow: hidden;
+  background-color: var(--blanco);
+  padding: 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease;
+  overflow: hidden;
 }
 
 .sucursal-card:hover,
 .servicio-item:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 .sucursal-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
 .sucursal-card h3 {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .sucursal-card p {
-    padding: 0 20px 10px;
+  padding: 0 20px 10px;
 }
 
 .sucursal-card .cta-button {
-    margin: 20px;
-    display: inline-block;
+  margin: 20px;
+  display: inline-block;
 }
+
+/* INICIO DE LOS ESTILOS DE SERVICIO MODIFICADOS (Manteniendo tu código) */
 
 .servicio-item {
-    padding: 30px;
+  background-color: var(--blanco);
+  padding: 20px;
+  min-height: auto;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.servicio-item img {
-    height: 60px;
-    margin-bottom: 15px;
+.servicio-item h3 {
+  color: var(--azul-oscuro);
+  margin-bottom: 15px;
+  text-align: center;
+  position: relative;
+  z-index: 3;
 }
 
+/* Nuevo contenedor para la imagen de fondo y el párrafo */
+.servicio-content-image {
+  position: relative;
+  flex-grow: 1;
+  min-height: 250px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0;
+  border-radius: 8px;
+  overflow: hidden;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s ease;
+}
+
+/* 🌟 ESTILO: Imagen de Fondo */
+.servicio-content-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 1;
+  filter: brightness(1);
+
+  transition: all 0.5s ease;
+}
+
+/* 🎨 EFECTO AL HACER HOVER: la imagen se oscurece MÁS y tiene un ligero zoom */
+.servicio-item:hover .servicio-content-image {
+  background-color: rgba(126, 120, 120, 0.8);
+}
+
+.servicio-item:hover .servicio-content-image::before {
+  transform: scale(1.05);
+}
+
+/* 📝 ESTILOS PARA EL PÁRRAFO (EL TEXTO) */
+.servicio-content-image p {
+  position: relative;
+  z-index: 2;
+  color: var(--blanco);
+  font-weight: bold;
+
+  background-color: rgba(0, 0, 0, 0.7);
+
+  padding: 10px 20px;
+
+  border-radius: 5px;
+  text-align: center;
+
+  max-width: calc(100% - 20px);
+
+  margin-bottom: 10px;
+}
+
+/* --- ASIGNACIÓN DE IMAGENES POR SERVICIO (Manteniendo tu código) --- */
+.servicio-item.mecanica-general .servicio-content-image::before {
+  background-image: url("resources/servicios/macanica_general.jpeg");
+}
+
+.servicio-item.frenos .servicio-content-image::before {
+  background-image: url("resources/servicios/frenos.jpeg");
+}
+
+.servicio-item.aceite-filtros .servicio-content-image::before {
+  background-image: url("resources/servicios/cambio_de_aceite.jpg");
+}
+
+.servicio-item.electricidad .servicio-content-image::before {
+  background-image: url("resources/servicios/Electricidad_automotriz.jpg");
+}
+
+.servicio-item.alineacion .servicio-content-image::before {
+  background-image: url("resources/servicios/alineacion.jpeg");
+}
+
+.servicio-item.aire-acondicionado .servicio-content-image::before {
+  background-image: url("resources/servicios/aire_acondicionado.jpeg");
+}
+
+/* FIN DE LOS ESTILOS DE SERVICIO MODIFICADOS */
 /* Página de Repuestos */
 
 .filtro-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
 }
 
 #buscador-input,
 #filtro-categoria {
-    padding: 12px 15px;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: 2px solid #ddd;
-    min-width: 250px;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 2px solid #ddd;
+  min-width: 250px;
 }
 
 #buscador-input:focus,
 #filtro-categoria:focus {
-    outline: none;
-    border-color: var(--naranja-vibrante);
+  outline: none;
+  border-color: var(--naranja-vibrante);
 }
 
 #repuestos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
-    margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
 }
 
 .repuesto-item {
-    background-color: var(--blanco);
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    text-align: center;
-    padding-bottom: 20px;
-    overflow: hidden;
-    transition: all 0.3s ease;
+  background-color: var(--blanco);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  padding-bottom: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .repuesto-item img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    margin-bottom: 15px;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 15px;
 }
 
 .repuesto-item h4 {
-    color: var(--azul-oscuro);
-    font-size: 1.1em;
-    padding: 0 10px;
+  color: var(--azul-oscuro);
+  font-size: 1.1em;
+  padding: 0 10px;
 }
 
 .repuesto-item p {
-    font-size: 0.9em;
-    color: #777;
-    margin-top: 5px;
+  font-size: 0.9em;
+  color: #777;
+  margin-top: 5px;
 }
 
-/* Clase para ocultar items en el filtro JS */
-
 .repuesto-item.hidden {
-    display: none;
+  display: none;
 }
 
 #no-resultados {
-    padding: 40px;
-    font-size: 1.2em;
-    color: var(--gris-oscuro);
+  padding: 40px;
+  font-size: 1.2em;
+  color: var(--gris-oscuro);
 }
 
 /* Footer */
 
 footer {
-    background-color: var(--azul-oscuro);
-    color: var(--blanco);
-    text-align: center;
-    padding: 60px 20px 20px;
-    margin-top: 50px;
+  background-color: var(--azul-oscuro);
+  color: var(--blanco);
+  text-align: center;
+  padding: 60px 20px 20px;
+  margin-top: 50px;
 }
 
 footer h2 {
-    color: var(--blanco);
+  color: var(--blanco);
 }
 
 footer a {
-    color: var(--blanco);
+  color: var(--blanco);
 }
 
 footer a:hover {
-    color: var(--naranja-vibrante);
+  color: var(--naranja-vibrante);
 }
 
 .social-media a {
-    display: inline-block;
-    background-color: var(--gris-oscuro);
-    color: var(--blanco);
-    padding: 10px 20px;
-    margin: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+  display: inline-block;
+  background-color: var(--gris-oscuro);
+  color: var(--blanco);
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 .social-media a:hover {
-    background-color: var(--naranja-vibrante);
-    color: var(--blanco);
+  background-color: var(--naranja-vibrante);
+  color: var(--blanco);
 }
 
 footer .copy {
-    margin-top: 30px;
-    font-size: 0.9em;
-    opacity: 0.7;
+  margin-top: 30px;
+  font-size: 0.9em;
+  opacity: 0.7;
 }
 
-/* Responsive Design */
+/* Responsive Design (Manteniendo tu código) */
 
 @media (max-width: 768px) {
-    main {
-        padding-top: 140px;
-    }
+  main {
+    padding-top: 140px;
+  }
 
-    /* Ajustar si el header se envuelve */
-
-    .navbar-container {
-        flex-direction: column;
-    }
-
-    .main-nav ul {
-        flex-direction: column;
-        margin-top: 15px;
-    }
-
-    .main-nav ul li {
-        margin: 10px 0;
-        text-align: center;
-    }
-
-    #hero h1 {
-        font-size: 2.2em;
-    }
-
-    h2 {
-        font-size: 2em;
-    }
-
-    .about-container {
-        flex-direction: column;
-    }
-
-    .filtro-container {
-        flex-direction: column;
-
-        align-items: center;
-    }
-
-    #buscador-input,
-    #filtro-categoria {
-        width: 100%;
-
-        max-width: 400px;
-    }
-}
-
-/* ... (Añade esto al final de tu style.css) ... */
-
-/* Estilos para el Header actualizado */
-
-.nav-actions {
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
-    /* Espacio entre los botones */
-}
-
-.account-link {
-    color: var(--blanco);
-    font-weight: bold;
-    padding: 10px 0;
-    position: relative;
-    border: 2px solid transparent;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-.account-link:hover,
-.account-link.active {
-    color: var(--naranja-vibrante);
-
-    border-color: var(--naranja-vibrante);
-}
-
-/* Estilos para pagina cuenta.html (Login/Registro) */
-
-.login-container {
-    max-width: 500px;
-    margin: 40px auto;
-    background: var(--blanco);
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-.form-toggle {
-    display: flex;
-}
-
-.form-toggle button {
-    width: 50%;
-    padding: 15px;
-    border: none;
-    background: #eee;
-    font-size: 1.1em;
-    font-weight: bold;
-    cursor: pointer;
-    color: var(--gris-oscuro);
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
-.form-toggle button.active {
-    background: var(--azul-oscuro);
-    color: var(--blanco);
-}
-
-.form-toggle button:hover:not(.active) {
-    background: #ddd;
-}
-
-.form-container {
-    padding: 30px 40px;
-    display: none;
-    /* Ocultos por defecto */
-}
-
-.form-container.active {
-    display: block;
-    /* Mostramos el activo */
-}
-
-.form-container h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    color: var(--azul-oscuro);
-}
-
-.form-container h2::after {
-    /* Opcional: quitar el subrayado naranja en el form */
-
-    display: none;
-}
-
-
-/* ESTILOS PARA LA SECCIÓN DE AGENDAR CITA (FORM-CITA)  */
-
-
-#form-cita {
-    background-image: url('resources/Agendar_CItas/CITAS.png');
-    background-repeat: no-repeat;
-    background-size: cover; 
-    background-position: center center; 
-    background-attachment: fixed; 
-    min-height: 100vh; 
-    display: flex;
+  .navbar-container {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: var(--blanco); 
-    position: relative; 
-    padding: 80px 20px; 
-    max-width: 100%; 
-    width: 100%; 
-    margin: 0; 
-}
+  }
 
-/* Capa Oscura (Overlay) - EFECTO LLAMATIVO */
-#form-cita::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7); 
-    z-index: 1; 
-}
+  .main-nav ul {
+    flex-direction: column;
+    margin-top: 15px;
+  }
 
-/* Contenido sobre el overlay */
-#form-cita > * {
-    position: relative;
-    z-index: 2; 
-    width: 100%; 
-}
-
-/* Estilo de Encabezado (H2 y P) */
-.form-header-content {
+  .main-nav ul li {
+    margin: 10px 0;
     text-align: center;
-    max-width: 950px;
-    margin: 0 auto 30px; 
-    padding: 0 10px;
-}
+  }
 
-#form-cita h2 { 
-    color: var(--blanco); 
-    font-size: 3em; 
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.9);
-}
-#form-cita p {
-    font-size: 1.1em;
-    opacity: 0.9;
-}
-#form-cita h2::after { 
-    background-color: var(--naranja-vibrante);
-    height: 5px;
-    width: 80px;
-}
+  #hero h1 {
+    font-size: 2.2em;
+  }
 
-/* Estilos para el contenedor del Formulario (EFECTO CRISTAL ESMERILADO) */
-.cita-form-container {
-    max-width: 950px; 
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.4); 
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    
-    padding: 50px;
-    border-radius: 15px; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
-    text-align: left;
-    width: 100%; 
-}
+  h2 {
+    font-size: 2em;
+  }
 
+  .about-container {
+    flex-direction: column;
+  }
 
-/* Estilo para Leyendas y Pasos */
-.form-step {
-    border: none;
-    padding: 0;
-    margin-bottom: 40px;
-    border-bottom: 1px solid rgba(0, 51, 102, 0.2); 
-    padding-bottom: 30px;
-}
-
-.form-step:last-of-type {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-.form-step legend {
-    font-size: 1.6em;
-    font-weight: bold;
-    color: var(--azul-oscuro); 
-    margin-bottom: 25px;
-    padding-bottom: 5px;
-    border-bottom: 3px solid var(--naranja-vibrante);
-    display: inline-block;
-}
-
-/* Diseño de 2 Columnas para campos (INNOVADOR) */
-.form-row {
-    display: flex;
-    gap: 25px; 
-    margin-bottom: 0;
-}
-
-.form-row .form-group {
-    flex: 1; 
-    min-width: 45%;
-}
-
-/* Estilos de inputs (mejorado) */
-.form-group label {
-    font-weight: bold;
-    color: var(--azul-oscuro); 
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="date"],
-.form-group select {
-    width: 100%;
-    padding: 14px 18px; 
-    font-size: 1.05rem;
-    border-radius: 8px; 
-    border: 1px solid #ccc;
-    background-color: rgba(255, 255, 255, 0.9); 
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-.form-group input:focus,
-.form-group select:focus {
-    border-color: var(--naranja-vibrante);
-    box-shadow: 0 0 0 3px rgba(255, 109, 45, 0.3); 
-    outline: none;
-}
-
-.cta-button.large {
-    width: 100%;
-    padding: 18px;
-    font-size: 1.3em;
-    border: none;
-    margin-top: 15px;
-}
-
-
-/* ----------------------------------------------------------------- */
-/* --- SELECTOR DE MARCA (DISEÑO RECTANGULAR, LADO A LADO) --- */
-/* ----------------------------------------------------------------- */
-
-.logo-selector-grid {
-    display: flex; /* Usamos flexbox para que estén lado a lado */
-    flex-wrap: wrap; /* Permite que los logos se envuelvan si no hay espacio */
-    justify-content: flex-start; /* Alinea los logos al inicio */
-    gap: 15px; /* Espacio entre los logos */
-    margin-top: 15px;
-    padding: 10px; 
-    border: 1px solid #ddd; /* Borde sutil al contenedor */
-    border-radius: 8px;
-    background-color: var(--blanco); 
-}
-
-/* Ocultar los radio buttons nativos */
-.logo-selector-grid input[type="radio"] {
-    display: none;
-}
-
-.logo-option {
-    /* Elemento que contiene el logo y el texto */
-    display: flex;
-    flex-direction: row; /* Logotipo y texto LADO A LADO */
+  .filtro-container {
+    flex-direction: column;
     align-items: center;
-    cursor: pointer;
-    padding: 8px 15px; 
-    border: 1px solid var(--gris-claro-fondo); /* Borde por defecto simple */
-    border-radius: 5px; /* Bordes rectangulares suaves */
-    transition: all 0.3s ease;
-    background-color: var(--gris-claro-fondo);
-    flex-grow: 0; /* No expandir */
-    white-space: nowrap; /* Evita que el texto de la marca se rompa */
+  }
+
+  #buscador-input,
+  #filtro-categoria {
+    width: 100%;
+    max-width: 400px;
+  }
 }
 
-/* Contenedor del logo */
-.logo-option img {
-    /* ** TAMAÑO DE LA IMAGEN EN LA FILA ** */
-    width: 120px; 
-    height: 120px; /* Reducido para mejor vista en fila */
-    object-fit: contain;
-    padding: 0;
-    
-    /* REMOVEMOS el estilo CIRCULAR */
-    border-radius: 0;
-    border: none;
-    
-    /* Filtro de grises por defecto */
-    filter: grayscale(100%); 
-    opacity: 0.7;
-    
-    transition: all 0.3s ease;
-}
-
-/* Estilo del texto de la marca */
-.logo-option span {
-    font-size: 1em;
-    font-weight: bold;
-    color: var(--gris-oscuro);
-    margin-left: 15px; /* Espacio entre el logo y el texto */
-    opacity: 0.9;
-    transition: color 0.3s ease;
-    text-transform: uppercase;
-}
-
-/* Efecto al pasar el mouse (hover) */
-.logo-option:hover {
-    border-color: var(--azul-oscuro); 
-    background-color: #f0f0f0;
-}
-.logo-option:hover img {
-    opacity: 1;
-}
-
-/* ESTADO SELECCIONADO (CON TU COLOR NARANJA VIBRANTE) */
-.logo-selector-grid input[type="radio"]:checked + .logo-option {
-    border: 2px solid var(--naranja-vibrante); 
-    background-color: rgba(255, 109, 45, 0.1); /* Fondo muy claro naranja */
-    box-shadow: 0 0 5px rgba(255, 109, 45, 0.4); 
-}
-
-.logo-selector-grid input[type="radio"]:checked + .logo-option img {
-    filter: grayscale(0%); /* A color */
-    opacity: 1;
-}
-
-.logo-selector-grid input[type="radio"]:checked + .logo-option span {
-    color: var(--naranja-vibrante); 
-    opacity: 1;
-}
-
-/* Responsive (ajuste móvil) */
-@media (max-width: 900px) {
-    .cita-form-container {
-        padding: 30px;
-    }
-    .form-row {
-        flex-direction: column; 
-        gap: 0;
-    }
-    .form-row .form-group {
-        min-width: 100%;
-    }
-}
-@media (max-width: 600px) {
-    .logo-selector-grid {
-        justify-content: space-between; /* Distribuye uniformemente en pantallas pequeñas */
-        gap: 8px;
-    }
-    .logo-option {
-        /* Permite que los elementos se envuelvan sin ser demasiado grandes */
-        flex-basis: calc(50% - 4px); /* Dos elementos por fila */
-        padding: 6px 10px;
-        font-size: 0.9em;
-    }
-    .logo-option img {
-        width: 30px;
-        height: 30px;
-    }
-}
-/* Estilos de formulario genéricos (aplican a ambos) */
+/* Estilos de formulario genéricos (Manteniendo tu código) */
 
 .form-group {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .form-group label {
-    display: block;
-
-    font-weight: bold;
-
-    margin-bottom: 8px;
-
-    color: var(--gris-oscuro);
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: var(--gris-oscuro);
 }
 
 .form-group input[type="text"],
@@ -944,17 +682,12 @@ footer .copy {
 .form-group input[type="password"],
 .form-group input[type="date"],
 .form-group select {
-    width: 100%;
-
-    padding: 12px 15px;
-
-    font-size: 1rem;
-
-    border-radius: 5px;
-
-    border: 2px solid #ddd;
-
-    transition: border-color 0.3s ease;
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 2px solid #ddd;
+  transition: border-color 0.3s ease;
 }
 
 .form-group input[type="text"]:focus,
@@ -962,308 +695,1127 @@ footer .copy {
 .form-group input[type="password"]:focus,
 .form-group input[type="date"]:focus,
 .form-group select:focus {
-    outline: none;
-
-    border-color: var(--naranja-vibrante);
+  outline: none;
+  border-color: var(--naranja-vibrante);
 }
 
 .cta-button.large {
-    width: 100%;
-
-    padding: 15px;
-
-    font-size: 1.2em;
+  width: 100%;
+  padding: 15px;
+  font-size: 1.2em;
 }
+
+/* ========================================= */
+/* ESTILOS DE CUENTA (Diseño de Pantalla Completa - EL QUE QUERÍAS) */
+/* ========================================= */
+
+/* ⚠️ ANULACIÓN para que el main de la página de login ocupe la pantalla completa */
+main.login-page-main {
+  padding: 0;
+}
+
+.full-screen-container {
+  display: flex;
+  align-items: center; /* 👈 ASEGURA QUE ESTÉ ASÍ para centrar verticalmente */
+  justify-content: center;
+  min-height: calc(100vh - 80px); /* Esto ya está bien si tu header mide 80px */
+  width: 100%;
+
+  background-image: url("assets/img/Fondo_cuenta.jpeg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Overlay para oscurecer la imagen de fondo y mejorar legibilidad */
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.65
+  ); /* Oscuridad de la imagen (más oscuro para el contraste) */
+  z-index: 1;
+}
+
+/* Layout principal con las dos secciones (tarjeta flotante) */
+.login-layout {
+  display: flex;
+  background-color: var(--blanco);
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 1000px;
+  min-height: 550px;
+  z-index: 2;
+  overflow: hidden;
+  margin: 500; /* 👈 CAMBIA ESTA LÍNEA de '40px 0' a 'auto' */
+}
+
+/* Sección de Bienvenida (Izquierda - Fondo Azul) */
+.welcome-section {
+  flex: 1;
+  background-color: var(--azul-oscuro); /* Fondo azul corporativo */
+  color: var(--blanco);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 400px;
+}
+
+.welcome-logo {
+  padding: 20px;
+}
+
+.welcome-logo img {
+  height: 120px;
+  margin-bottom: 25px;
+  /* FILTRO: Hace el logo blanco para que contraste en el fondo azul */
+  filter: none;
+}
+
+.welcome-section h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: var(--blanco);
+}
+
+.welcome-section p {
+  font-size: 1em;
+  line-height: 1.6;
+  max-width: 350px;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.social-icons {
+  margin-top: auto;
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  color: var(--blanco);
+  font-size: 1.5em;
+}
+
+.social-icon:hover {
+  color: var(--naranja-vibrante); /* Íconos Naranja al pasar el mouse */
+}
+
+/* Sección del Formulario (Derecha - Fondo Blanco) */
+.form-section {
+  flex: 1;
+  background-color: var(--blanco);
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: var(--azul-oscuro);
+  text-align: left;
+}
+
+/* Ajustes a los inputs dentro del nuevo layout */
+.form-group-full {
+  margin-bottom: 20px;
+}
+.form-group-full label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: var(--gris-oscuro);
+}
+.form-group-full input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+.form-group-full input:focus {
+  border-color: var(--naranja-vibrante);
+  box-shadow: 0 0 0 3px rgba(255, 109, 45, 0.2);
+  outline: none;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  font-size: 0.95em;
+}
+
+.cta-button.full-width {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1em;
+  margin-top: 10px;
+  background-color: var(--naranja-vibrante); /* Botón principal Naranja */
+  border: none;
+}
+
+.cta-button.full-width:hover {
+  background-color: var(--azul-oscuro); /* Hover Azul Corporativo */
+}
+
+.forgot-password-full,
+.no-account {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.9em;
+}
+
+.forgot-password-full a,
+.no-account a {
+  color: var(--naranja-vibrante);
+  font-weight: bold;
+}
+.forgot-password-full a:hover,
+.no-account a:hover {
+  text-decoration: underline;
+}
+
+/* Los formularios internos deben mostrarse/ocultarse con JS, no con flex */
+.form-container {
+  display: none;
+}
+
+.form-container.active {
+  display: block;
+}
+
+/* Responsive para la página de cuenta (Ajustes clave para móvil) */
+@media (max-width: 900px) {
+  .full-screen-container {
+    min-height: auto;
+    padding: 20px 0;
+  }
+  .login-layout {
+    flex-direction: column;
+    width: 95%;
+    max-width: 450px;
+    min-height: auto;
+    margin: 510px; /* 👈 CAMBIA ESTA LÍNEA de '20px auto' a 'auto' */
+  }
+
+  .welcome-section {
+    max-width: none;
+    padding: 30px;
+  }
+  .welcome-logo img {
+    height: 80px;
+  }
+  .welcome-section h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  .welcome-section p {
+    margin-bottom: 20px;
+  }
+  .social-icons {
+    margin-top: 20px;
+  }
+
+  .form-section {
+    padding: 30px;
+  }
+}
+
+/* Mantenemos tus estilos de cita y dashboard al final */
+
+/* ESTILOS PARA LA SECCIÓN DE AGENDAR CITA (FORM-CITA) */
+
+#form-cita {
+  background-image: url("resources/Agendar_CItas/CITAS.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--blanco);
+  position: relative;
+  padding: 80px 20px;
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+/* Capa Oscura (Overlay) - EFECTO LLAMATIVO */
+#form-cita::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+/* Contenido sobre el overlay */
+#form-cita > * {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+/* Estilo de Encabezado (H2 y P) */
+.form-header-content {
+  text-align: center;
+  max-width: 950px;
+  margin: 0 auto 30px;
+  padding: 0 10px;
+}
+
+#form-cita h2 {
+  color: var(--blanco);
+  font-size: 3em;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+}
+#form-cita p {
+  font-size: 1.1em;
+  opacity: 0.9;
+}
+#form-cita h2::after {
+  background-color: var(--naranja-vibrante);
+  height: 5px;
+  width: 80px;
+}
+
+/* Estilos para el contenedor del Formulario (EFECTO CRISTAL ESMERILADO) */
+.cita-form-container {
+  max-width: 950px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  padding: 50px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  width: 100%;
+}
+
+/* Estilo para Leyendas y Pasos */
+.form-step {
+  border: none;
+  padding: 0;
+  margin-bottom: 40px;
+  border-bottom: 1px solid rgba(0, 51, 102, 0.2);
+  padding-bottom: 30px;
+}
+
+.form-step:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.form-step legend {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: var(--azul-oscuro);
+  margin-bottom: 25px;
+  padding-bottom: 5px;
+  border-bottom: 3px solid var(--naranja-vibrante);
+  display: inline-block;
+}
+
+/* Diseño de 2 Columnas para campos (INNOVADOR) */
+.form-row {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 0;
+}
+
+.form-row .form-group {
+  flex: 1;
+  min-width: 45%;
+}
+
+/* Estilos de inputs (mejorado) */
+.form-group label {
+  font-weight: bold;
+  color: var(--azul-oscuro);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="date"],
+.form-group select {
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 1.05rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--naranja-vibrante);
+  box-shadow: 0 0 0 3px rgba(255, 109, 45, 0.3);
+  outline: none;
+}
+
+.cta-button.large {
+  width: 100%;
+  padding: 18px;
+  font-size: 1.3em;
+  border: none;
+  margin-top: 15px;
+}
+
+/* ----------------------------------------------------------------- */
+/* --- SELECTOR DE MARCA (DISEÑO RECTANGULAR, LADO A LADO) --- */
+/* ----------------------------------------------------------------- */
+
+.logo-selector-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 15px;
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: var(--blanco);
+}
+
+/* Ocultar los radio buttons nativos */
+.logo-selector-grid input[type="radio"] {
+  display: none;
+}
+
+.logo-option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px 15px;
+  border: 1px solid var(--gris-claro-fondo);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  background-color: var(--gris-claro-fondo);
+  flex-grow: 0;
+  white-space: nowrap;
+}
+
+/* Contenedor del logo */
+.logo-option img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  padding: 0;
+
+  border-radius: 0;
+  border: none;
+
+  filter: grayscale(100%);
+  opacity: 0.7;
+
+  transition: all 0.3s ease;
+}
+
+/* Estilo del texto de la marca */
+.logo-option span {
+  font-size: 1em;
+  font-weight: bold;
+  color: var(--gris-oscuro);
+  margin-left: 15px;
+  opacity: 0.9;
+  transition: color 0.3s ease;
+  text-transform: uppercase;
+}
+
+/* Efecto al pasar el mouse (hover) */
+.logo-option:hover {
+  border-color: var(--azul-oscuro);
+  background-color: #f0f0f0;
+}
+.logo-option:hover img {
+  opacity: 1;
+}
+
+/* ESTADO SELECCIONADO (CON TU COLOR NARANJA VIBRANTE) */
+.logo-selector-grid input[type="radio"]:checked + .logo-option {
+  border: 2px solid var(--naranja-vibrante);
+  background-color: rgba(255, 109, 45, 0.1);
+  box-shadow: 0 0 5px rgba(255, 109, 45, 0.4);
+}
+
+.logo-selector-grid input[type="radio"]:checked + .logo-option img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.logo-selector-grid input[type="radio"]:checked + .logo-option span {
+  color: var(--naranja-vibrante);
+  opacity: 1;
+}
+
+/* Responsive (ajuste móvil) */
+@media (max-width: 900px) {
+  .cita-form-container {
+    padding: 30px;
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  .form-row .form-group {
+    min-width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .logo-selector-grid {
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .logo-option {
+    flex-basis: calc(50% - 4px);
+    padding: 6px 10px;
+    font-size: 0.9em;
+  }
+  .logo-option img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
 /* ========================================= */
 /* ESTILOS ESPECÍFICOS DEL DASHBOARD ADMIN   */
 /* ========================================= */
 
 /* Layout Principal del Dashboard (CLASE CRUCIAL) */
 body.admin-body {
-    display: flex; 
-    min-height: 100vh;
-    background-color: var(--gris-claro-fondo);
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif; 
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--gris-claro-fondo);
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
 
 body.admin-body main {
-    padding: 0;
-    flex-grow: 1; 
-    margin-left: 250px; /* Ancho del sidebar */
+  padding: 0;
+  flex-grow: 1;
+  margin-left: 250px;
 }
 
 /* --- BARRA LATERAL (SIDEBAR) --- */
 .sidebar {
-    width: 250px;
-    background-color: var(--azul-oscuro);
-    color: var(--blanco);
-    padding: 20px;
-    position: fixed; 
-    height: 100%;
-    top: 0;
-    left: 0;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-    z-index: 100;
+  width: 250px;
+  background-color: var(--azul-oscuro);
+  color: var(--blanco);
+  padding: 20px;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
 }
 .sidebar .logo-admin {
-    text-align: center;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    
-    padding-top: 20px; 
-    margin: 0 -20px 30px -20px; 
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  padding-top: 20px;
+  margin: 0 -20px 30px -20px;
 }
 .sidebar .logo-admin img {
-    width: 150px;
+  width: 150px;
 }
 .sidebar h3 {
-    color: var(--naranja-vibrante);
-    text-align: center;
-    margin-bottom: 20px;
+  color: var(--naranja-vibrante);
+  text-align: center;
+  margin-bottom: 20px;
 }
 .sidebar-nav ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 .sidebar-nav ul li a {
-    display: flex;
-    align-items: center;
-    color: var(--blanco);
-    padding: 14px 15px;
-    margin-bottom: 8px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-weight: bold;
-    text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: var(--blanco);
+  padding: 14px 15px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-weight: bold;
+  text-decoration: none;
 }
 .sidebar-nav ul li a:hover,
 .sidebar-nav ul li a.active {
-    background-color: var(--naranja-vibrante);
-    color: var(--azul-oscuro);
+  background-color: var(--naranja-vibrante);
+  color: var(--azul-oscuro);
 }
 .sidebar-nav ul li a .icon {
-    margin-right: 10px;
-    font-size: 1.2em;
-    font-style: normal;
+  margin-right: 10px;
+  font-size: 1.2em;
+  font-style: normal;
 }
 .logout-link {
-    margin-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 15px;
+  margin-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 15px;
 }
 .logout-link a {
-    background-color: var(--rojo-alerta) !important;
-    color: var(--blanco) !important;
-    text-align: center;
+  background-color: var(--rojo-alerta) !important;
+  color: var(--blanco) !important;
+  text-align: center;
 }
 .logout-link a:hover {
-    background-color: #c82333 !important;
+  background-color: #c82333 !important;
 }
 
 /* --- CONTENIDO PRINCIPAL --- */
 .dashboard-content {
-    padding: 40px;
-    width: 100%;
+  padding: 40px;
+  width: 100%;
 }
 .dashboard-content h1 {
-    color: var(--azul-oscuro);
-    margin-bottom: 30px;
-    border-bottom: 3px solid var(--naranja-vibrante);
-    padding-bottom: 10px;
-    text-align: left;
-    font-size: 2.5em;
+  color: var(--azul-oscuro);
+  margin-bottom: 30px;
+  border-bottom: 3px solid var(--naranja-vibrante);
+  padding-bottom: 10px;
+  text-align: left;
+  font-size: 2.5em;
 }
 
 /* --- TARJETAS DE CONTENIDO (Secciones y Formularios) --- */
-.section-card, .form-section-card, .detail-card {
-    background: var(--blanco);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-    text-align: left;
-    transition: transform 0.3s ease;
+.section-card,
+.form-section-card,
+.detail-card {
+  background: var(--blanco);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  text-align: left;
+  transition: transform 0.3s ease;
 }
 .section-card:hover {
-    transform: translateY(-3px);
+  transform: translateY(-3px);
 }
 .section-card h2 {
-    color: var(--azul-oscuro);
-    font-size: 1.8em;
-    margin-bottom: 20px;
+  color: var(--azul-oscuro);
+  font-size: 1.8em;
+  margin-bottom: 20px;
 }
 
 /* --- KPI's / Stats Grid --- */
 .stats-grid {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 .stat-box {
-    flex: 1;
-    min-width: 200px;
-    background: var(--blanco);
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    border-left: 5px solid var(--azul-oscuro);
+  flex: 1;
+  min-width: 200px;
+  background: var(--blanco);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-left: 5px solid var(--azul-oscuro);
 }
 .stat-box.alert {
-    border-left: 5px solid var(--rojo-alerta);
+  border-left: 5px solid var(--rojo-alerta);
 }
 .stat-box .number {
-    font-size: 2.5em;
-    font-weight: bold;
-    color: var(--azul-oscuro);
+  font-size: 2.5em;
+  font-weight: bold;
+  color: var(--azul-oscuro);
 }
 .stat-box .label {
-    color: var(--gris-oscuro);
-    margin-top: 5px;
-    font-size: 1.1em;
+  color: var(--gris-oscuro);
+  margin-top: 5px;
+  font-size: 1.1em;
 }
 
 /* --- TABLAS Y BOTONES --- */
 .data-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
-.data-table th, .data-table td {
-    padding: 12px 15px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
+.data-table th,
+.data-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
 }
 .data-table th {
-    background-color: var(--azul-oscuro);
-    color: var(--blanco);
-    font-weight: bold;
+  background-color: var(--azul-oscuro);
+  color: var(--blanco);
+  font-weight: bold;
 }
 .data-table tr:hover {
-    background-color: #f0f0f0;
+  background-color: #f0f0f0;
 }
 .data-table a {
-    color: var(--naranja-vibrante);
-    text-decoration: none;
-    font-weight: bold;
+  color: var(--naranja-vibrante);
+  text-decoration: none;
+  font-weight: bold;
 }
 .action-buttons {
-    margin-top: 30px;
-    display: flex;
-    gap: 15px;
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
 }
 .cta-button {
-    padding: 12px 25px; 
-    border-radius: 5px;
-    font-size: 1em;
-    text-decoration: none; 
-    display: inline-block;
-    background-color: var(--azul-oscuro);
-    color: var(--blanco);
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 1em;
+  text-decoration: none;
+  display: inline-block;
+  background-color: var(--azul-oscuro);
+  color: var(--blanco);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 /* Estilos para los botones de acción específicos */
 .cta-button.btn-cancel {
-    background-color: #6c757d;
+  background-color: #6c757d;
 }
 .cta-button.btn-cancel:hover {
-    background-color: #5a6268;
+  background-color: #5a6268;
 }
 
 /* Estilo para el botón HACER PEDIDO (Verde Éxito) */
 .cta-button.btn-success {
-    background-color: var(--verde-exito);
+  background-color: var(--verde-exito);
 }
 .cta-button.btn-success:hover {
-    background-color: #1e7e34; /* Tono más oscuro de verde */
+  background-color: #1e7e34;
+}
+/* ================================================= */
+
+/* ESTILOS DE LA PÁGINA PROMOCIONES */
+
+/* ================================================= */
+
+/* ================================================= */
+
+/* 1. ESTILOS DEL CARRUSEL (#carousel-ofertas) */
+
+/* ================================================= */
+
+#carousel-ofertas {
+  padding: 20px 0;
+
+  text-align: center;
+
+  background-color: var(--color-fondo-claro);
 }
 
-/* Estilo para el botón ELIMINAR (Rojo Alerta) */
-.cta-button#delete-button {
-    background-color: var(--rojo-alerta);
-}
-.cta-button#delete-button:hover {
-    background-color: #bd2130; /* Tono más oscuro de rojo */
+#carousel-ofertas h2 {
+  color: var(--color-azul-oscuro);
+
+  margin-bottom: 30px;
 }
 
+.slider-container {
+  max-width: 1200px;
 
-/* --- FORMULARIOS --- */
-.form-row-2col {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-}
-.form-row-2col .form-group {
-    flex: 1;
-    min-width: 280px;
-}
-.form-group label {
-    display: block;
-    font-weight: bold;
-    color: var(--azul-oscuro);
-    margin-bottom: 5px;
-}
-.form-group input, .form-group select, .form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 1em;
+  margin: 0 auto;
+
+  overflow: hidden;
+
+  position: relative;
+
+  border-radius: 10px;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* --- DETALLE DE CITA --- */
-.detail-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-}
-.detail-item {
-    padding: 8px 0;
-    border-bottom: 1px dotted #ccc;
-}
-.detail-item strong {
-    display: inline-block;
-    width: 120px;
-    color: var(--naranja-vibrante);
-}
-.status-badge {
-    display: inline-block;
-    padding: 5px 15px;
-    border-radius: 50px;
-    font-weight: bold;
-    color: var(--blanco);
-}
-.status-badge.pendiente { background-color: #ffc107; color: #333; }
-.status-badge.confirmada { background-color: var(--verde-exito); }
-.status-badge.finalizada { background-color: var(--azul-oscuro); }
+.slider-track {
+  display: flex;
 
-/* --- RESPONSIVE BÁSICO --- */
-@media (max-width: 992px) {
-    body.admin-body main {
-        margin-left: 0; 
-    }
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-    .dashboard-content {
-        padding: 20px;
-    }
-    .detail-grid, .stats-grid {
-        grid-template-columns: 1fr;
-    }
-    .form-row-2col {
-        flex-direction: column;
-    }
-    .action-buttons {
-        flex-direction: column;
-    }
+  transition: transform 0.6s ease-in-out;
+}
+
+.carousel-panel {
+  min-width: 100%;
+
+  height: 450px; /* Altura del carrusel */
+
+  background-size: cover;
+
+  background-position: center;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-start; /* Contenido a la izquierda */
+
+  padding: 0 10%;
+
+  color: var(--color-blanco);
+
+  text-align: left;
+}
+
+.panel-content {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.65
+  ); /* Fondo semitransparente para el texto */
+
+  padding: 30px;
+
+  border-radius: 8px;
+
+  max-width: 500px;
+}
+
+.panel-content .tag {
+  display: inline-block;
+
+  font-weight: bold;
+
+  padding: 5px 15px;
+
+  border-radius: 20px;
+
+  margin-bottom: 15px;
+
+  font-size: 0.9em;
+}
+
+.panel-content .bg-naranja {
+  background-color: var(--color-naranja-vibrante);
+}
+
+.panel-content .bg-azul {
+  background-color: var(--color-azul-oscuro);
+}
+
+.carousel-panel h1 {
+  font-size: 2.8em;
+
+  color: var(--color-naranja-vibrante);
+
+  margin-bottom: 10px;
+
+  line-height: 1.1;
+}
+
+.carousel-panel p {
+  font-size: 1.2em;
+
+  margin-bottom: 25px;
+}
+
+.cta-button-slide {
+  /* Estilo del botón heredado de .cta-button, pero con posibles ajustes */
+
+  display: inline-block;
+
+  background-color: var(--color-naranja-vibrante);
+
+  color: var(--color-blanco);
+
+  padding: 12px 30px;
+
+  border-radius: 5px;
+
+  font-weight: bold;
+
+  border: 2px solid var(--color-naranja-vibrante);
+
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.cta-button-slide:hover {
+  background-color: var(--color-azul-oscuro);
+
+  border-color: var(--color-blanco);
+}
+
+/* Puntos de navegación del carrusel */
+
+.slider-dots {
+  position: absolute;
+
+  bottom: 20px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+
+  gap: 10px;
+}
+
+.slider-dots .dot {
+  width: 10px;
+
+  height: 10px;
+
+  background-color: rgba(255, 255, 255, 0.5);
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.slider-dots .dot.active {
+  background-color: var(--color-naranja-vibrante);
+
+  transform: scale(1.2);
+}
+
+/* ================================================= */
+
+/* 2. ESTILOS DE LA PROMOCIÓN DE REGISTRO (#promo-registro) */
+
+/* ================================================= */
+
+#promo-registro {
+  text-align: center;
+
+  padding: 50px 20px;
+
+  color: var(--color-blanco);
+}
+
+.promo-content {
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 40px;
+}
+
+.promo-text {
+  text-align: left;
+
+  flex: 2;
+}
+
+.promo-text h2 {
+  color: var(--color-naranja-vibrante);
+
+  margin-bottom: 10px;
+
+  text-align: left;
+}
+
+.promo-text p {
+  font-size: 1.1em;
+
+  margin-bottom: 5px;
+}
+
+.promo-text .resaltado {
+  font-weight: bold;
+
+  font-style: italic;
+
+  color: #ffb792; /* Naranja más claro para énfasis */
+}
+
+.promo-action {
+  flex: 1;
+
+  min-width: 250px;
+}
+
+.cta-button-large {
+  display: block;
+
+  width: 100%;
+
+  padding: 15px 20px;
+
+  border-radius: 8px;
+
+  font-size: 1.1em;
+
+  font-weight: bold;
+
+  text-align: center;
+
+  transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+}
+
+.cta-button-large.bg-naranja {
+  background-color: var(--color-naranja-vibrante);
+
+  color: var(--color-blanco);
+
+  border: 2px solid var(--color-naranja-vibrante);
+}
+
+.cta-button-large.bg-naranja:hover {
+  background-color: var(--color-azul-oscuro);
+
+  border-color: var(--color-blanco);
+
+  transform: scale(1.05);
+}
+
+/* ================================================= */
+
+/* 3. ESTILOS DE REPUESTOS EN OFERTA (#repuestos-en-oferta) */
+
+/* ================================================= */
+
+#repuestos-en-oferta {
+  text-align: center;
+
+  background-color: var(--color-fondo-claro);
+}
+
+.repuestos-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+  gap: 30px;
+
+  max-width: 1200px;
+
+  margin: 30px auto;
+}
+
+.repuesto-card {
+  background-color: var(--color-blanco);
+
+  border-radius: 8px;
+
+  padding: 20px;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+  text-align: center;
+
+  position: relative;
+
+  transition: transform 0.3s;
+}
+
+.repuesto-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.repuesto-card img {
+  width: 100%;
+
+  height: auto;
+
+  max-height: 180px;
+
+  object-fit: contain;
+
+  margin-bottom: 15px;
+}
+
+.repuesto-card h4 {
+  color: var(--color-azul-oscuro);
+
+  font-size: 1.1em;
+
+  margin-bottom: 10px;
+}
+
+.precio-original {
+  display: block;
+
+  text-decoration: line-through;
+
+  color: var(--color-gris-oscuro);
+
+  font-size: 0.9em;
+}
+
+.precio-oferta {
+  display: block;
+
+  font-size: 1.4em;
+
+  font-weight: bold;
+
+  color: var(--color-naranja-vibrante);
+
+  margin-bottom: 15px;
+}
+
+.descuento-badge {
+  position: absolute;
+
+  top: 10px;
+
+  left: 10px;
+
+  background-color: var(--color-azul-oscuro);
+
+  color: var(--color-blanco);
+
+  padding: 5px 10px;
+
+  border-radius: 5px;
+
+  font-weight: bold;
+
+  font-size: 0.8em;
+}
+
+.cta-repuesto-btn {
+  display: block;
+
+  padding: 8px 15px;
+
+  background-color: var(--color-naranja-vibrante);
+
+  color: var(--color-blanco);
+
+  border-radius: 4px;
+
+  font-weight: bold;
+
+  transition: background-color 0.3s;
+}
+
+.cta-repuesto-btn:hover {
+  background-color: var(--color-azul-oscuro);
 }

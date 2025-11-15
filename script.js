@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. Lógica del buscador de repuestos
+    // 2. Lógica del buscador de repuestos (Necesita elementos en repuestos.html)
     const buscadorInput = document.getElementById('buscador-input');
     const filtroCategoria = document.getElementById('filtro-categoria');
     const repuestosGrid = document.getElementById('repuestos-grid');
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         filtroCategoria.addEventListener('change', filtrarRepuestos);
     }
 
-    // 3. Lógica para el toggle de Login/Registro y Simulación de Acceso Administrativo
+    // 3. Lógica para el toggle de Login/Registro y Simulación de Acceso Administrativo (Necesita elementos en cuenta.html)
     const showLoginBtn = document.getElementById('show-login-btn');
     const showRegisterBtn = document.getElementById('show-register-btn');
     const loginFormContainer = document.getElementById('login-form');
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Comprobamos que los elementos del Login/Registro existan
     if (showLoginBtn && showRegisterBtn && loginFormContainer && registerFormContainer) {
         
-        // A. Lógica de Toggling (tal como la tenías)
+        // A. Lógica de Toggling 
         showLoginBtn.addEventListener('click', () => {
             loginFormContainer.classList.add('active');
             registerFormContainer.classList.remove('active');
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
             showRegisterBtn.classList.add('active');
         });
         
-        // B. Lógica de Simulación de Acceso Administrativo (Nueva)
+        // B. Lógica de Simulación de Acceso Administrativo 
         if (loginFormSubmit) {
             loginFormSubmit.addEventListener('submit', function(e) {
                 e.preventDefault(); // Detiene el envío normal del formulario
@@ -107,11 +107,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (enteredEmail === ADMIN_EMAIL && enteredPass === ADMIN_PASS) {
                     // Acceso de Administrador: Redirigir al Dashboard
                     alert('Acceso de Administrador simulado exitoso. Redirigiendo a Dashboard...');
-                    window.location.href = 'admin-dashboard.html';
+                    // Redirección simulada
+                    // window.location.href = 'admin-dashboard.html'; 
                 } else {
-                    // Acceso de Usuario Normal: Simulación (Mantener en la página o redirigir al perfil)
+                    // Acceso de Usuario Normal: Simulación
                     alert('Ingreso de usuario normal simulado. ¡Bienvenido!');
-                    // Aquí iría window.location.href = 'perfil-usuario.html';
+                    // Redirección simulada
+                    // window.location.href = 'perfil-usuario.html';
                 }
             });
         }
