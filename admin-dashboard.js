@@ -130,4 +130,85 @@ document.addEventListener('DOMContentLoaded', () => {
             // Aquí iría la lógica para enviar los datos a tu backend
         });
     }
+    document.addEventListener('DOMContentLoaded', function () {
+    
+    // --- LÓGICA DEL SUBMENÚ DESPLEGABLE ---
+    const menuItemsWithSubmenu = document.querySelectorAll('.has-submenu > .main-link');
+
+    menuItemsWithSubmenu.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            // Evitar que el enlace principal navegue (importante para que el submenú se abra)
+            e.preventDefault(); 
+            
+            const parentLi = link.closest('li');
+            const isCurrentlyOpen = parentLi.classList.contains('open');
+            
+            // 1. Cerrar cualquier otro submenú abierto
+            document.querySelectorAll('.has-submenu').forEach(function(item) {
+                // Elimina la clase 'open' de todos, incluso del actual
+                item.classList.remove('open');
+            });
+            
+            // 2. Si el menú no estaba abierto, lo abrimos después de haber cerrado los demás
+            if (!isCurrentlyOpen) {
+                parentLi.classList.add('open');
+            }
+
+            // 3. Manejar el cambio de sección principal después de abrir/cerrar el menú
+            handleSectionChange(link);
+        });
+    });
+
+    // --- LÓGICA DEL CAMBIO DE SECCIÓN EN MAIN (Contenido principal) ---
+    const allLinks = document.querySelectorAll('.sidebar-nav a');
+    
+    // Asignar el evento click a TODOS los enlaces, incluidos los del submenú
+    allLinks.forEach(link => {
+        // Solo para enlaces que comienzan con '#' (navegación interna)
+        if (link.getAttribute('href') && link.getAttribute('href').startsWith('#')) {
+            link.addEventListener('click', function(e) {
+                // Si es un enlace principal, ya lo manejamos arriba, pero nos aseguramos del cambio de sección
+                if (!this.classList.contains('main-link')) {
+                    // Si es un subenlace, prevenimos el default para que solo cambie la sección si es necesario
+                    // e.preventDefault(); // Descomentar si no quieres que el URL cambie
+                    handleSectionChange(this);
+                }
+            });
+        }
+    });
+
+    // Función auxiliar para manejar la activación de la sección y el enlace
+    function handleSectionChange(clickedLink) {
+        const sections = document.querySelectorAll('.dashboard-section');
+        const href = clickedLink.getAttribute('href');
+        
+        // 1. Ocultar todas las secciones
+        sections.forEach(section => {
+            section.style.display = 'none';
+        });
+
+        // 2. Mostrar la sección correspondiente
+        const targetSection = document.querySelector(href);
+        if (targetSection) {
+            targetSection.style.display = 'block';
+        }
+
+        // 3. Manejar la clase 'active' para resaltado
+        document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+        
+        if (clickedLink.classList.contains('main-link')) {
+             // Si es el enlace principal, lo activamos
+             clickedLink.classList.add('active');
+        } else if (clickedLink.closest('.submenu')) {
+            // Si es un subenlace, activamos el enlace principal padre
+            clickedLink.closest('li.has-submenu').querySelector('.main-link').classList.add('active');
+        } else {
+            // Otros enlaces
+            clickedLink.classList.add('active');
+        }
+    }
+    
+    // Inicializar: Asegurar que la sección de Inicio esté visible al cargar
+    handleSectionChange(document.querySelector('.sidebar-nav a[href="#inicio"]'));
+});
 });
