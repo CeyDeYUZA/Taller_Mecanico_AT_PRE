@@ -64,7 +64,8 @@
           <div class="form-section">
             <div id="login-form" class="form-container active">
               <h2>Acceder a tu Cuenta</h2>
-              <form id="loginForm"> <div class="form-group-full">
+              <form id="loginForm"> 
+                <div class="form-group-full">
                   <label for="login-email">Correo Electrónico</label>
                   <input
                     type="email"
@@ -191,7 +192,7 @@
 
     <script>
         const API_URL = "http://localhost:3000"; // URL base de tu servidor Node.js
-        const ADMINISTRATOR_ROLE_ID = 2; // Asegúrate de que este ID coincida con el rol de Administrador en tu BD
+        const ADMINISTRATOR_ROLE_ID = 2; // ID que corresponde al rol de Administrador en tu BD
 
         // --- REGISTRO ---
         const registerFormHTML = document.querySelector("#register-form form");
@@ -228,8 +229,8 @@
             loginFormHTML.addEventListener("submit", async (e) => {
                 e.preventDefault();
                 
-                const email = document.getElementById("login-email").value;
-                const password = document.getElementById("login-password").value;
+                const email = document.getElementById("login-email").value; // Obtener email
+                const password = document.getElementById("login-password").value; // Obtener password
 
                 const res = await fetch(`${API_URL}/login`, {
                     method: "POST",
@@ -244,9 +245,9 @@
                     const roleId = result.user.roleId;
 
                     if (roleId === ADMINISTRATOR_ROLE_ID) {
-                        // Redirige al panel de administración (dashboard.html)
+                        // Redirige al panel de administración (admin-dashboard.html)
                         alert(`¡Bienvenido Administrador ${result.user.nombre}! Redirigiendo al Dashboard.`);
-                        window.location.href = "dashboard.html"; 
+                        window.location.href = "admin-dashboard.html"; // <-- ¡REDIRECCIÓN CORRECTA!
                     } else {
                         // Redirige al panel de cliente (o página principal)
                         alert(`¡Bienvenido ${result.user.nombre}!`);
@@ -259,7 +260,6 @@
                 }
             });
         }
-
 
         // --- Lógica de Cambio de Formulario (Sin Cambios) ---
         const switchToRegister = document.getElementById("switch-to-register");
